@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  django:
+    container_name: 'rune_django'
+    build:
+      context: ./rune
+    command: python manage.py runserver 0.0.0.0:8334
+    volumes:
+      - ./rune:/rune/
+    ports:
+      - "8334:8334"
+    environment:
+      - DEBUG=1

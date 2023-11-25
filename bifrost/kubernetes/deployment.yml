@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bifrost
+  labels:
+    app: bifrost
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bifrost
+  template:
+    metadata:
+      labels:
+        app: bifrost
+    spec:
+      containers:
+        - name: bifrost
+          image: abhijitacharya793/bifrost:0.0.1
+          ports:
+            - containerPort: 8888
