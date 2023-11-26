@@ -1,0 +1,55 @@
+version: '3.8'
+services:
+  # REDIS
+  redis:
+    image: redis:7.2-alpine
+  # POSTGRES
+  db:
+    image: postgres:15
+    volumes:
+     - bolt_data:/var/lib/postgresql/data/
+    environment:
+     - POSTGRES_USER=admin
+     - POSTGRES_PASSWORD=admin
+     - POSTGRES_DB=bolt
+  # BIFROST API
+  bifrost-api:
+    container_name: 'bifrost_api'
+    build:
+      context: ./bifrost/bifrost
+    command: python manage.py runserver 0.0.0.0:8333
+    volumes:
+      - ./bifrost/bifrost:/bifrost/
+    ports:
+      - "8333:8333"
+    environment:
+      - DEBUG=1
+  # RUNE API
+  rune-api:
+    container_name: 'rune_api'
+    build:
+      context: ./rune/rune
+    command: python manage.py runserver 0.0.0.0:8334
+    volumes:
+      - ./rune/rune:/rune/
+    ports:
+      - "8334:8334"
+    environment:
+      - DEBUG=1
+    depends_on:
+      - redis
+  # RUNE CELERY
+  rune-celery:
+    container_name: 'rune_celery'
+    build:
+      context: ./rune/rune
+    command: celery --app=rune worker -l INFO
+    volumes:
+      - ./rune/rune:/rune/
+    environment:
+      - DEBUG=1
+      - IMAGE_NAME=celery
+    depends_on:
+      - redis
+volumes:
+  bolt_data:

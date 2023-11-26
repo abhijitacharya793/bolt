@@ -1,12 +1,18 @@
 from celery import shared_task
 from django.db import models
 
+from .helper import parse_xml, parse_api, save_api
+
 POWER = [("l", "low"), ("m", "medium"), ("h", "high"), ]
 
 
 @shared_task
-def parse_burp_export():
+def parse_burp_export(burp_export):
     print("PARSING BURPSUITE EXPORT")
+    api_strings = parse_xml(burp_export)
+    for api_string in api_strings:
+        api = parse_api(api_string)
+        save_api(api)
     return
 
 
@@ -22,4 +28,4 @@ class BurpExport(models.Model):
     def save(self, *args, **kwargs):
         super(BurpExport, self).save(*args, **kwargs)
         # Call parsing task
-        parse_burp_export.delay()
+        parse_burp_export.apply_async(args=[self.burpExport.name])

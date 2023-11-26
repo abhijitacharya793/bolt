@@ -1,12 +1,15 @@
 #!/bin/bash
 
-echo "Apply database migrations"
-python manage.py makemigrations
-python manage.py migrate
+if [[ "$IMAGE_NAME" == "celery" ]]
+then
+  echo "Apply database migrations"
+  python manage.py flush --no-input
+  python manage.py makemigrations burpexport
+  python manage.py migrate
 
-DJANGO_SUPERUSER_USERNAME="admin"
-DJANGO_SUPERUSER_PASSWORD="admin"
-DJANGO_SUPERUSER_EMAIL="admin@rune.bolt"
-python manage.py createsuperuser --username "admin" --email "admin@rune.bolt" --no-input
-
+  export DJANGO_SUPERUSER_USERNAME=admin
+  export DJANGO_SUPERUSER_PASSWORD=admin
+  export DJANGO_SUPERUSER_EMAIL=admin@rune.bolt
+  python manage.py createsuperuser --no-input
+fi
 exec "$@"

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-yjcnptu(!@*)ggu#pqv1hi5fush0=6$z6dp!6+yu#83o*9cq1$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -39,7 +39,6 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'burpexport',
-    'cworker',
 ]
 
 MIDDLEWARE = [

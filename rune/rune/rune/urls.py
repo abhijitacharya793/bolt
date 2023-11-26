@@ -18,6 +18,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/v1/burpExport/', include('burpexport.urls'))
+    path('rune/v1/admin/', admin.site.urls),
+    path('rune/v1/burpExport/', include('burpexport.urls'))
 ]

@@ -2,7 +2,10 @@ FROM python:3.10
 
 WORKDIR /bifrost
 
-COPY ./requirments.txt /bifrost/requirements.txt
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+COPY ./requirements.txt /bifrost/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /bifrost/requirements.txt
 
