@@ -1,5 +1,7 @@
 version: '3.8'
 services:
+  redis:
+    image: redis:7.2-alpine
   django:
     container_name: 'rune_django'
     build:
@@ -11,3 +13,16 @@ services:
       - "8334:8334"
     environment:
       - DEBUG=1
+    depends_on:
+      - redis
+  celery:
+    container_name: 'rune_celery'
+    build:
+      context: ./rune
+    command: celery --app=rune worker -l INFO
+    volumes:
+      - ./rune:/rune/
+    environment:
+      - DEBUG=1
+    depends_on:
+      - redis

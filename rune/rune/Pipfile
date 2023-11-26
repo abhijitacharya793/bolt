@@ -7,6 +7,9 @@ name = "pypi"
 django = "*"
 redis = "*"
 celery = "*"
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
 
 [dev-packages]
 

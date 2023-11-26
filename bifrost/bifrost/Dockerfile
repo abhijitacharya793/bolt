@@ -6,6 +6,9 @@ COPY ./requirments.txt /bifrost/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /bifrost/requirements.txt
 
+COPY ./entrypoint.sh /bifrost/entrypoint.sh
+
 COPY . /bifrost
 
-CMD ["python","manage.py","runserver","0.0.0.0:8333"]
+ENTRYPOINT ["/bifrost/entrypoint.sh"]
+# CMD ["python","manage.py","runserver","0.0.0.0:8333"]

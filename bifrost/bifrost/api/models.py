@@ -20,7 +20,7 @@ class Header(models.Model):
 class Api(models.Model):
     protocol = models.CharField(max_length=10, default="http")
     port = models.IntegerField(default=80)
-    method = models.CharField(max_length=100)  # Choices
+    method = models.CharField(max_length=100)  # TODO: Choices
     path = models.CharField(max_length=100)
     query_param = models.ForeignKey(Query, on_delete=models.CASCADE, blank=True, null=True)
     header = models.ForeignKey(Header, on_delete=models.CASCADE, blank=True, null=True)
