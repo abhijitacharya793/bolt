@@ -90,6 +90,7 @@ services:
     command: celery --app=asgard worker -l INFO
     volumes:
       - ./asgard/asgard:/asgard/
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - DEBUG=1
       - IMAGE_NAME=celery
@@ -110,34 +111,36 @@ services:
       - IMAGE_NAME=asgard_api
     depends_on:
       - redis
-  # # YGGDRASIL API
-  # yggdrasil-api:
-  #   container_name: 'yggdrasil_api'
-  #   build:
-  #     context: ./yggdrasil/yggdrasil
-  #   command: python manage.py runserver 0.0.0.0:8337
-  #   volumes:
-  #     - ./yggdrasil/yggdrasil:/yggdrasil/
-  #   ports:
-  #     - "8337:8337"
-  #   environment:
-  #     - DEBUG=1
-  #     - IMAGE_NAME=yggdrasil_api
-  #   depends_on:
-  #     - redis
-  # # RAGNAROK IMAGE
-  # ragnarok:
-  #   container_name: 'ragnarok'
-  #   platform: linux/amd64
-  #   build:
-  #     context: ./ragnarok/ragnarok
-  #   # command: 
-  #   volumes:
-  #     - ./ragnarok/ragnarok:/ragnarok/
-  #   environment:
-  #     - DEBUG=1
-  #   stdin_open: true
-  #   tty: true
+  # YGGDRASIL API
+  yggdrasil-api:
+    container_name: 'yggdrasil_api'
+    build:
+      context: ./yggdrasil/yggdrasil
+    command: python manage.py runserver 0.0.0.0:8337
+    volumes:
+      - ./yggdrasil/yggdrasil:/yggdrasil/
+    ports:
+      - "8337:8337"
+    environment:
+      - DEBUG=1
+      - IMAGE_NAME=yggdrasil_api
+    depends_on:
+      - redis
+  # RAGNAROK IMAGE
+  ragnarok:
+    container_name: 'ragnarok'
+    # platform: linux/amd64
+    build:
+      context: ./ragnarok/ragnarok
+    # command: 
+    volumes_from:
+      - yggdrasil-api:/yggdrasil/scripts
+    volumes:
+      - ./ragnarok/ragnarok:/ragnarok/
+    environment:
+      - DEBUG=1
+    stdin_open: true
+    tty: true
   # # HIEMDALL API
   # hiemdall-api:
   #   container_name: 'hiemdall_api'

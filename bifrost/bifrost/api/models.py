@@ -19,7 +19,16 @@ class Api(models.Model):
 
     @property
     def api_string(self):
-        return f"{self.target}"
+        api_string = f"{self.method} {self.path}?"
+        # ADD QUERY PARAM
+        for query_param in self.query_object:
+            api_string += f"{query_param['name']}={query_param['value']}&"
+        api_string += " HTTP/1.1\n"
+        for header in self.header_object:
+            api_string += f"{header['name']}: {header['value']}\n"
+        if self.method == "POST" or self.method == "PUT":
+            api_string += f"\n\n{self.body}"
+        return api_string
 
 
 class Query(models.Model):

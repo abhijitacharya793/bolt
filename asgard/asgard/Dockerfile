@@ -2,6 +2,9 @@ FROM python:3.10
 
 WORKDIR /asgard
 
+RUN apt-get update -y
+RUN apt-get install docker.io -y
+
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 

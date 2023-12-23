@@ -30,8 +30,14 @@ https://fontawesome.com/v5/search?q=input&o=r
  - scheduler for scans created in midgard
 ### ragnarok
  - scanning machine
+ - multistage docker image
+    - Go to create go binaries
+    - Ununtu to run scripts
 ### yggdrasil
  - script manager
+    - upload scripts directly to ragnarok volume
+    - save command and inputs to script on yggdrasil
+    - pass command to asgard and run same command directly on ragnarok
 ### hiemdall
  - output manager
 
