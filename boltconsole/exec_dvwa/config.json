@@ -1,0 +1,7 @@
+{
+    "execution_dir": "exec_bwapp",
+    "login": "exec_bwapp/login",
+    "logout": "",
+    "burp_export": "exec_bwapp/bwapp_xmli.xml",
+    "rate_limit": "10"
+}

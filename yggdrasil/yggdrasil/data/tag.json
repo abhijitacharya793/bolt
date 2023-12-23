@@ -1,0 +1,37 @@
+[
+  {
+    "model": "risk.tag",
+    "pk": 1,
+    "fields": {
+      "name": "recon"
+    }
+  },
+  {
+    "model": "risk.tag",
+    "pk": 2,
+    "fields": {
+      "name": "injection"
+    }
+  },
+  {
+    "model": "risk.tag",
+    "pk": 3,
+    "fields": {
+      "name": "fuzzing"
+    }
+  },
+  {
+    "model": "risk.tag",
+    "pk": 4,
+    "fields": {
+      "name": "web-static"
+    }
+  },
+  {
+    "model": "risk.tag",
+    "pk": 5,
+    "fields": {
+      "name": "android-static"
+    }
+  }
+]

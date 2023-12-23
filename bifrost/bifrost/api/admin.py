@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from api.models import Api, Header, Query
+from .models import Api, Header, Query
 
 
 class ApiAdmin(admin.ModelAdmin):

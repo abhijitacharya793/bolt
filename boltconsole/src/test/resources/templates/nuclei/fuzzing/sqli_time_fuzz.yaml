@@ -1,0 +1,18 @@
+id: sqli_fuzz
+info:
+  name: SQL Injection
+  author: abhijit
+  severity: critical
+
+requests:
+  - raw:
+      - |
+{{RAW_REQUESTS}}
+    stop-at-first-match: true
+    payloads:
+      injection: {{PATH}}/src/test/resources/payloads/sqli_time_fuzz.payload
+
+    matchers:
+      - type: dsl
+        dsl:
+          - 'duration>=10'

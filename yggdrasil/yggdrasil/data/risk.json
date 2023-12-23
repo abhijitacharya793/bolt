@@ -1,0 +1,189 @@
+[
+  {
+    "model": "risk.risk",
+    "pk": 1,
+    "fields": {
+      "name": "Broken Authentication",
+      "abbreviation": "Authn",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 2,
+    "fields": {
+      "name": "Broken Access Control",
+      "abbreviation": "Authz",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 3,
+    "fields": {
+      "name": "Cryptographic Failures",
+      "abbreviation": "CF",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 4,
+    "fields": {
+      "name": "Server Side Request Forgery",
+      "abbreviation": "SSRF",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 5,
+    "fields": {
+      "name": "SQL injection",
+      "abbreviation": "SQLi",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 6,
+    "fields": {
+      "name": "Cross Site Scripting",
+      "abbreviation": "XSS",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 7,
+    "fields": {
+      "name": "XML External Entity",
+      "abbreviation": "XXE",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 8,
+    "fields": {
+      "name": "Local File Inclusion",
+      "abbreviation": "LFI",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 9,
+    "fields": {
+      "name": "Remote File Inclusion",
+      "abbreviation": "RFI",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 10,
+    "fields": {
+      "name": "Remote Code Execution",
+      "abbreviation": "RCE",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 11,
+    "fields": {
+      "name": "HTTP Parameter Pollution",
+      "abbreviation": "HPP",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 12,
+    "fields": {
+      "name": "File Upload",
+      "abbreviation": "File",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 13,
+    "fields": {
+      "name": "Session Misconfigurations",
+      "abbreviation": "config",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 14,
+    "fields": {
+      "name": "Application Misconfigurations",
+      "abbreviation": "config",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 15,
+    "fields": {
+      "name": "Insecure Deserialization",
+      "abbreviation": "ID",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 16,
+    "fields": {
+      "name": "Open Redirect",
+      "abbreviation": "OR",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  },
+  {
+    "model": "risk.risk",
+    "pk": 17,
+    "fields": {
+      "name": "",
+      "abbreviation": "",
+      "description": "",
+      "remediation": "",
+      "steps_to_reproduce": ""
+    }
+  }
+]

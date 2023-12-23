@@ -4,10 +4,10 @@ services:
     container_name: 'bifrost_django'
     build:
       context: ./bifrost
-    command: python manage.py runserver 0.0.0.0:8333
+    command: python manage.py runserver 0.0.0.0:8332
     volumes:
       - ./bifrost:/bifrost/
     ports:
-      - "8333:8333"
+      - "8332:8332"
     environment:
       - DEBUG=1

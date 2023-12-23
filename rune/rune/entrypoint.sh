@@ -1,8 +1,10 @@
 #!/bin/bash
 
-if [[ "$IMAGE_NAME" == "celery" ]]
+if [[ "$IMAGE_NAME" == "rune_api" ]]
 then
+  echo "#########################"
   echo "Apply database migrations"
+  echo "#########################"
   python manage.py flush --no-input
   python manage.py makemigrations burpexport
   python manage.py migrate
@@ -11,5 +13,9 @@ then
   export DJANGO_SUPERUSER_PASSWORD=admin
   export DJANGO_SUPERUSER_EMAIL=admin@rune.bolt
   python manage.py createsuperuser --no-input
+
+  echo "#########################"
+  echo "Pre-runs completed"
+  echo "#########################"
 fi
 exec "$@"

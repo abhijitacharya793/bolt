@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Finding
+
+
+class FindingAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(Finding, FindingAdmin)

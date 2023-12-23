@@ -1,0 +1,20 @@
+id: lfi_fuzz
+info:
+  name: Local File Inclusion - Windows
+  author: abhijit
+  severity: high
+
+requests:
+  - raw:
+      - |
+{{RAW_REQUESTS}}
+    stop-at-first-match: true
+    payloads:
+      injection: {{PATH}}/src/test/resources/payloads/lfi_windows_fuzz.payload
+
+    matchers:
+      - type: regex
+        regex:
+          - "bit app support"
+          - "fonts"
+          - "extensions"

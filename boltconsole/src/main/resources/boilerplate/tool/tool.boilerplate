@@ -1,0 +1,23 @@
+from src.main.cli.auxiliary.utils.shell import run_command
+
+
+class <TOOL_NAME>:
+    def __init__(self):
+        self.results = None
+<TOOL_PARAMS>
+
+<TOOL_PARAM_METHOD>
+
+    @staticmethod
+    def join_inputs(strings_tuple) -> str:
+        if strings_tuple[1] != "DO_NOT_RUN":
+            return ' '.join(strings_tuple)
+        else:
+            return ''
+
+    def execute(self):
+        command = "<TOOL_BINARY> "
+<TOOL_PARAM_ARRAY>
+        command += ' '.join(list(map(self.join_inputs, inputs)))
+        self.results = run_command(command)
+        return self

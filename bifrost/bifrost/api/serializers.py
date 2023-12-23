@@ -1,10 +1,21 @@
 from rest_framework import serializers
 
-from api.models import Api
+from .models import Api, Query, Header
+
+
+class QuerySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Query
+        fields = '__all__'
+
+
+class HeaderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Header
+        fields = '__all__'
 
 
 class ApiSerializer(serializers.ModelSerializer):
     class Meta:
         model = Api
-        fields = ['protocol', 'port', 'method', 'path', 'query_param', 'header', 'body', 'target', 'domain',
-                  'root_domain']
+        fields = '__all__'

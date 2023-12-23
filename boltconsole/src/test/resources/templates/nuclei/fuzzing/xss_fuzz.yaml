@@ -1,0 +1,23 @@
+id: xss_fuzz
+info:
+  name: Cross Site Scripting
+  author: abhijit
+  severity: medium
+
+requests:
+  - raw:
+      - |
+{{RAW_REQUESTS}}
+    stop-at-first-match: true
+    payloads:
+      injection: {{PATH}}/src/test/resources/payloads/xss_fuzz.payload
+
+    matchers:
+      - type: word
+        words:
+          - "{{injection}}"
+      - type: word
+        words:
+          - "{{url_decode(injection)}}"
+        condition: or
+

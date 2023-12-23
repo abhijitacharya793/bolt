@@ -6,4 +6,4 @@ from .models import BurpExport
 class BurpExportSerializer(serializers.ModelSerializer):
     class Meta:
         model = BurpExport
-        fields = ['name', 'scope', 'power', 'burpExport']
+        fields = '__all__'

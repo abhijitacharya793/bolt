@@ -1,0 +1,20 @@
+id: xmli_fuzz
+info:
+  name: XML/XPATH Injection
+  author: abhijit
+  severity: critical
+
+requests:
+  - raw:
+      - |
+{{RAW_REQUESTS}}
+    stop-at-first-match: true
+    payloads:
+      injection: {{PATH}}/src/test/resources/payloads/xmli_fuzz.payload
+
+    matchers:
+      - type: regex
+        regex:
+          - "evaluation failed"
+          - "invalid predicate"
+          - "xpath()"

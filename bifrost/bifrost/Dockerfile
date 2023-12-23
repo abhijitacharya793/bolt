@@ -14,4 +14,3 @@ COPY ./entrypoint.sh /bifrost/entrypoint.sh
 COPY . /bifrost
 
 ENTRYPOINT ["/bifrost/entrypoint.sh"]
-# CMD ["python","manage.py","runserver","0.0.0.0:8333"]

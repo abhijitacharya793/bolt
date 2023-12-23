@@ -1,0 +1,3 @@
+    def <PARAMETER>(self, value = ""):
+        self._<PARAMETER>[1] = value
+        return self

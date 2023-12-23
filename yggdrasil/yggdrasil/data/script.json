@@ -1,0 +1,26 @@
+[
+  {
+    "model": "risk.script",
+    "pk": 1,
+    "fields": {
+      "name": "login",
+      "script": "login.py"
+    }
+  },
+  {
+    "model": "risk.script",
+    "pk": 2,
+    "fields": {
+      "name": "create nuclei template",
+      "script": "create_nuclei_template.py"
+    }
+  },
+  {
+    "model": "risk.script",
+    "pk": 3,
+    "fields": {
+      "name": "api to request",
+      "script": "api_to_request.py"
+    }
+  }
+]

@@ -1,0 +1,18 @@
+import React from 'react'
+import GeneralReport from './dashboard/GeneralReport'
+import Analytics from './dashboard/Analytics'
+import Numbers from './dashboard/Numbers'
+import QuickInfo from './dashboard/QuickInfo'
+import ScanOverview from './dashboard/ScanOverview'
+
+export default function Dashboard() {
+    return (
+        <>
+            <GeneralReport />
+            <Analytics />
+            <ScanOverview />
+            <Numbers />
+            <QuickInfo />
+        </>
+    )
+}

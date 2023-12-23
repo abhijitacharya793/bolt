@@ -1,0 +1,10 @@
+Django==4.2.7
+django-filter==23.4
+djangorestframework==3.14.0
+Markdown==3.5.1
+pipenv==2023.11.15
+requests==2.31.0
+drf-yasg==1.21.7
+redis==5.0.1
+celery==5.3.6
+django-celery-beat

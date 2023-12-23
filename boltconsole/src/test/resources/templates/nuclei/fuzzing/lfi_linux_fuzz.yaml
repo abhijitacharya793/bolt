@@ -1,0 +1,18 @@
+id: lfi_fuzz
+info:
+  name: Local File Inclusion - Linux
+  author: abhijit
+  severity: high
+
+requests:
+  - raw:
+      - |
+{{RAW_REQUESTS}}
+    stop-at-first-match: true
+    payloads:
+      injection: {{PATH}}/src/test/resources/payloads/lfi_linux_fuzz.payload
+
+    matchers:
+      - type: regex
+        regex:
+          - "root:.*:0:0:"
