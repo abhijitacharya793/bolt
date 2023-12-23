@@ -20,7 +20,6 @@ class Api(models.Model):
     @property
     def api_string(self):
         return f"{self.target}"
-        # f"{self.method} {self.}"
 
 
 class Query(models.Model):

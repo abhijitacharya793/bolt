@@ -16,7 +16,7 @@ app.conf.beat_schedule = {
 
 
 def get_all_scans():
-    return json.loads(requests.get("http://midgard-api:8335/midgard/v1/enricher?triggered=False").text)
+    return json.loads(requests.get("http://valhalla-api:8335/valhalla/v1/enricher?triggered=False").text)
 
 
 def get_vulnerability(vulnerability_id):
@@ -63,20 +63,21 @@ def run_workflow(workflow):
 
 @app.task
 def trigger_scan():
-    print("Get scans from midgard and run")
+    print("Get scans from valhalla and run")
 
-    # TODO: Call midgard and get queued api scans
+    # TODO: Call valhalla and get queued api scans
     scans = get_all_scans()
 
-    # TODO: pick an api and for each vulnerability recommended by midgard
+    # TODO: pick an api and for each vulnerability recommended by valhalla
     #     get script from yggdrasil for the vulnerability and level
     #     trigger a scan in docker
     for scan in scans:
-        for vulnerability_id in scan['scans'].split(","):
-            # vulnerability = get_vulnerability(vulnerability_id)
-            workflow_tree = get_workflow_tree(vulnerability_id)
-            for workflow in workflow_tree:
-                run_workflow(workflow)
+        if scan['scans']:
+            for vulnerability_id in scan['scans'].split(","):
+                # vulnerability = get_vulnerability(vulnerability_id)
+                workflow_tree = get_workflow_tree(vulnerability_id)
+                for workflow in workflow_tree:
+                    run_workflow(workflow)
         break
 
     # TODO: get output of each scan and send it to hiemdall (hiemdall will update it to bifrost)

@@ -124,5 +124,5 @@ def save_api(api, scope):
 
 def enrich_scan(api_id, name, power):
     print("ENRICHER")
-    requests.post("http://midgard-api:8335/midgard/v1/enricher/", json={"name": name, "uuid": api_id, "power": power})
+    requests.post("http://valhalla-api:8335/valhalla/v1/enricher/", json={"name": name, "uuid": api_id, "power": power})
     return

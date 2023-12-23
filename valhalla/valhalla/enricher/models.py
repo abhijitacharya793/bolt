@@ -1,15 +1,14 @@
 from django.db import models
 
-
 # from .helper import parse_xml, parse_api, save_api, enrich_scan
 
-# POWER = [(1, "low"), (2, "medium"), (3, "high"), ]
+POWER = [(1, "low"), (2, "medium"), (3, "high"), ]
 
 
 class Enricher(models.Model):
     name = models.CharField(max_length=100)
     uuid = models.CharField(max_length=100)
-    power = models.IntegerField()
+    power = models.IntegerField(choices=POWER)
     scans = models.CharField(max_length=1000, null=True, blank=True)
     triggered = models.BooleanField(default=False)
 
