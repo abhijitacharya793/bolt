@@ -7,7 +7,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="valhalla",
         default_version='v1',
-        description="Service to decide on the scans to run for a particular API",
+        description="Service to decide on the tasks to run for a particular API",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="admin@valhalla.bolt"),
         license=openapi.License(name="BSD License"),

@@ -6,6 +6,7 @@ then
   echo "Apply database migrations"
   echo "#########################"
   rm media/burpExport/burp_export*
+  rm media/burpExport/juice_shop*
 
   python manage.py flush --no-input
   python manage.py makemigrations burpexport

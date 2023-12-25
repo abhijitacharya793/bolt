@@ -1,13 +1,12 @@
 import React from 'react'
 import { useState } from "react";
-import bolt_img from '../../static/img/bolt.jpeg'
 
 import {
   Button,
   IconButton,
   Typography,
 } from "@material-tailwind/react";
-import { BoltIcon, ChartBarIcon, ExclamationTriangleIcon, EyeSlashIcon, HomeIcon, LinkIcon, QueueListIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { BoltIcon, ChartBarIcon, Cog6ToothIcon, ExclamationTriangleIcon, EyeSlashIcon, HomeIcon, LinkIcon, QueueListIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 export default function Sidenav() {
   const [openSidenav, setOpenSidenav] = useState(true);
@@ -23,11 +22,7 @@ export default function Sidenav() {
           className={`relative`}
         >
           <a href="/home" className="py-6 px-8 text-center flex items-center gap-4">
-            {/* <BoltIcon className="w-5 h-5 text-center" /> */}
-            <img
-              src={bolt_img}
-              className="h-5- w-5 object-cover rounded-3xl"
-            />
+            <BoltIcon className="w-5 h-5 text-center text-gray-900" />
             <Typography
               variant="h6"
               color="blue-gray"
@@ -210,6 +205,39 @@ export default function Sidenav() {
                 className="font-black uppercase opacity-75 text-sm font-semibold"
               >
                 configurations
+              </Typography>
+            </li>
+
+            <li key="configurations">
+              <a href="/configurations">
+                <Button
+                  variant={pathName === "/configurations" ? "gradient" : "text"}
+                  color={
+                    pathName === "/configurations"
+                      ? "dark"
+                      : "blue-gray"
+                  }
+                  className="flex items-center gap-4 px-4 capitalize"
+                  fullWidth
+                >
+                  <Cog6ToothIcon className="w-4 h-4 text-inherit" />
+                  <Typography
+                    color="inherit"
+                    className="font-medium capitalize text-sm font-semibold"
+                  >
+                    configurations
+                  </Typography>
+                </Button>
+              </a>
+            </li>
+
+            <li className="mx-3.5 mt-4 mb-2">
+              <Typography
+                variant="small"
+                color="blue-gray"
+                className="font-black uppercase opacity-75 text-sm font-semibold"
+              >
+                socials
               </Typography>
             </li>
 

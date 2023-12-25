@@ -9,7 +9,7 @@ class Enricher(models.Model):
     name = models.CharField(max_length=100)
     uuid = models.CharField(max_length=100)
     power = models.IntegerField(choices=POWER)
-    scans = models.CharField(max_length=1000, null=True, blank=True)
+    tasks = models.CharField(max_length=1000, null=True, blank=True)
     triggered = models.BooleanField(default=False)
 
     def __str__(self):

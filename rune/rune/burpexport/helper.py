@@ -42,6 +42,11 @@ def get_params(request):
     return params
 
 
+def get_protocol_version(request):
+    protocol_version = request.split("\r\n")[0].split(" ")[-1]
+    return protocol_version
+
+
 def get_headers(request):
     headers = []
     header_string = "\r\n".join(request.split("\r\n")[1:]).split("\r\n\r\n")[0]
@@ -78,6 +83,8 @@ def parse_api(api_string):
 
     # GET QUERY PARAM
     params = get_params(request)
+    # GET PROTOCOL VERSION
+    protocol_version = get_protocol_version(request)
     # GET HEADER
     headers = get_headers(request)
     # GET BODY
@@ -86,13 +93,10 @@ def parse_api(api_string):
     domain = host
     # GET ROOT DOMAIN
     root_domain = get_root_domain(host)
-    #
-    # print(f"&&&&&&&&&&& UPLOAD: {protocol}://{url}:{port}{path}")
-    # print(f"{method} {params} {body} {domain} {root_domain}")
-    # print(headers)
 
-    return {"protocol": protocol, "port": port, "method": method, "path": path, "query_param": params,
-            "header": headers, "body": body, "target": url, "domain": domain, "root_domain": root_domain}
+    return {"protocol": protocol, "protocol_version": protocol_version, "port": port, "method": method, "path": path,
+            "query_param": params, "header": headers, "body": body, "target": url, "domain": domain,
+            "root_domain": root_domain}
 
 
 def save_api(api, scope):

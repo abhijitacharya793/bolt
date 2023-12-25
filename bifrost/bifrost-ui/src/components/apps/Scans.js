@@ -47,22 +47,6 @@ export default function Asgard() {
         navigate(`/scans/scandetails/${e.target.name}`);
 
     }
-    // const scans = [
-    //     {
-    //         img: <GlobeAsiaAustraliaIcon className='h-8' />,
-    //         name: "Juice Shop",
-    //         scope: ["localhost", "127.0.0.1", "127.1"],
-    //         power: "low",
-    //         completion: 60,
-    //     },
-    //     {
-    //         img: <DevicePhoneMobileIcon className='h-8' />,
-    //         name: "Injured Android",
-    //         scope: ["localhost", "127.0.0.1"],
-    //         power: "high",
-    //         completion: 80,
-    //     },
-    // ];
     return (
         <>
             <div className="relative mt-8 h-36 w-full overflow-hidden rounded-xl bg-cover bg-center">

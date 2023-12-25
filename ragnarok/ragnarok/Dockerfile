@@ -24,4 +24,7 @@ COPY --from=go_build /go/bin/gobuster /usr/local/bin/gobuster
 RUN apt-get update -y
 RUN apt-get install wget curl unzip git ruby ruby-dev libcurl4-openssl-dev liblzma-dev zlib1g-dev libpcap-dev python3-pycurl python3-bs4 python3-geoip python3-cairocffi python3-selenium dnsrecon whatweb wafw00f nmap nikto dnsenum dnsutils whois host python3 python3-pip -y
 
+COPY ./requirements.txt /ragnarok/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /ragnarok/requirements.txt
+
 CMD ["bash"]

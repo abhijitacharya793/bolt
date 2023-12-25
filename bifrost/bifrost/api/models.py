@@ -9,6 +9,7 @@ class Api(models.Model):
     root_domain = models.CharField(max_length=100)
     domain = models.CharField(max_length=100)
     protocol = models.CharField(max_length=10, default="http")
+    protocol_version = models.CharField(max_length=10, default="HTTP/1.1")
     port = models.IntegerField(default=80)
     method = models.CharField(max_length=100)  # TODO: Choices
     path = models.CharField(max_length=100)
@@ -42,7 +43,7 @@ class Query(models.Model):
 
 class Header(models.Model):
     name = models.CharField(max_length=20)
-    value = models.CharField(max_length=200)
+    value = models.CharField(max_length=5000)
     api = models.ForeignKey(Api, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):

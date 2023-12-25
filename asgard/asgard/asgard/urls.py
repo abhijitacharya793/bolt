@@ -9,7 +9,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="asgard",
         default_version='v1',
-        description="Service to manage scheduled scans",
+        description="Service to manage scheduled tasks",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="admin@asgard.bolt"),
         license=openapi.License(name="BSD License"),

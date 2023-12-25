@@ -1,11 +1,7 @@
 import React from "react";
 
 import {
-    Card,
-    Input,
-    Checkbox,
     Button,
-    Typography,
 } from "@material-tailwind/react";
 
 import bolt_img from '../../static/img/bolt.jpeg'
@@ -33,26 +29,21 @@ export default function Home() {
 
     return (
         <>
-            <section className="flex pt-10">
-                <div className="relative flex items-center justify-center">
-                    <div className="w-full h-full hidden lg:block m-8 opacity-70">
-                        <img
-                            src={bolt_img}
-                            className="h-3/4 w-full object-cover rounded-3xl"
-                        />
-                    </div>
-                    <div className="absolute top-1/4 right-1/3 container px-10 w-2/5 flex flex-col items-center justify-center p-8">
-                        <div className="text-right">
-                            <code className="font-mono m-6 uppercase bg-red-50 p-2">Begin Your Automation Journey</code>
+            <section class="h-screen flex items-center">
+                <div class="w-full h-full relative">
+                    <img src={bolt_img} alt="Hero" class="absolute inset-0 w-full h-full object-cover rounded-tr-2xl rounded-bl-2xl" />
+                    <div class="absolute inset-0 flex items-center justify-center text-center text-white">
+                        <div>
+                            <code className="font-mono m-6 uppercase bg-gray-900 p-2">Begin Your Automation Journey</code>
                             <div dangerouslySetInnerHTML={{ __html: marked(markdown) }}></div>
+                            <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
+                                <a href="/scans">
+                                    <Button className="mt-6" fullWidth>
+                                        Discover Scans
+                                    </Button>
+                                </a>
+                            </form>
                         </div>
-                        <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
-                            <a href="/scans">
-                                <Button className="mt-6" fullWidth>
-                                    Discover Scans
-                                </Button>
-                            </a>
-                        </form>
                     </div>
                 </div>
             </section>

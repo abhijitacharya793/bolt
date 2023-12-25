@@ -17,6 +17,11 @@ import Vulnerabilities from './components/apps/Vulnerabilities';
 
 import Secrets from './components/apps/Secrets';
 
+import Tags from './components/configurations/Tags';
+import Configurations from './components/configurations/Configurations';
+import Workflows from './components/configurations/VulnerabilityClasses';
+import VulnerabilityClasses from './components/configurations/Workflows';
+
 import Twitter from "./components/social/Twitter";
 
 function App() {
@@ -36,6 +41,10 @@ function App() {
               <Route path="/scans/scandetails/:id" element={<ScanDetails />} />
               <Route path="/vulnerabilities" element={<Vulnerabilities />} />
               <Route path="/secrets" element={<Secrets />} />
+              <Route path="/configurations" element={<Configurations />} />
+              <Route path="/workflows" element={<Workflows />} />
+              <Route path="/vulnerabilityclasses" element={<VulnerabilityClasses />} />
+              <Route path="/tags" element={<Tags />} />
               <Route path="/twitter" element={<Twitter />} />
             </Routes>
           </BrowserRouter>
