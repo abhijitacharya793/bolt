@@ -5,7 +5,7 @@ from .models import Enricher
 
 # Register your models here.
 class EnricherAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["id", "name", "uuid", "power", "tasks", "triggered"]
 
 
 admin.site.register(Enricher, EnricherAdmin)

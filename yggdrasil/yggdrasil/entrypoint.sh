@@ -9,10 +9,11 @@ python manage.py makemigrations tool
 python manage.py makemigrations risk
 python manage.py migrate
 
+#python manage.py dumpdata risk.risk > risk.json
 python manage.py loaddata data/tag.json
-python manage.py loaddata data/script.json
 python manage.py loaddata data/risk.json
 python manage.py loaddata data/vulnerability.json
+python manage.py loaddata data/script.json
 python manage.py loaddata data/workflow.json
 
 export DJANGO_SUPERUSER_USERNAME=admin

@@ -5,3 +5,4 @@ Markdown==3.5.1
 pipenv==2023.11.15
 requests==2.31.0
 drf-yasg==1.21.7
+django-cors-headers

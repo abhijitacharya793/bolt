@@ -4,23 +4,23 @@ from .models import Risk, Tag, Script, Workflow, Vulnerability
 
 
 class TagAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["id", "name"]
 
 
 class RiskAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["id", "name", "abbreviation"]
 
 
 class ScriptAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["id", "name", "script"]
 
 
 class WorkflowAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["id", "name", "script"]
 
 
 class VulnerabilityAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["id", "name", "risk", "severity", "power", "workflows"]
 
 
 admin.site.register(Tag, TagAdmin)

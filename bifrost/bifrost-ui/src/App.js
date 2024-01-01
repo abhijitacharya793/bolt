@@ -1,28 +1,29 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Header from './components/layout/Header';
-import Sidenav from './components/layout/Sidenav';
+import Header from "./components/layout/Header";
+import Sidenav from "./components/layout/Sidenav";
 import Footer from "./components/layout/Footer";
 
-import Home from './components/home/Home';
-import Dashboard from './components/home/Dashboard';
+import Home from "./components/home/Home";
+import Dashboard from "./components/home/Dashboard";
 
-import Adaptors from './components/apps/Adaptors';
+import Adaptors from "./components/apps/Adaptors";
 
-import Scans from './components/apps/Scans';
+import Scans from "./components/apps/Scans";
 import ScanDetails from "./components/apps/scan/ScanDetails";
 
-import Vulnerabilities from './components/apps/Vulnerabilities';
+import Vulnerabilities from "./components/apps/Vulnerabilities";
 
-import Secrets from './components/apps/Secrets';
+import Secrets from "./components/apps/Secrets";
 
-import Tags from './components/configurations/Tags';
-import Configurations from './components/configurations/Configurations';
-import Workflows from './components/configurations/VulnerabilityClasses';
-import VulnerabilityClasses from './components/configurations/Workflows';
+import Tags from "./components/configurations/Tags";
+import Configurations from "./components/configurations/Configurations";
+import Workflows from "./components/configurations/VulnerabilityClasses";
+import VulnerabilityClasses from "./components/configurations/Workflows";
 
 import Twitter from "./components/social/Twitter";
+import VulnerabilityDetails from "./components/apps/vulnerability/VulnerabilityDetails";
 
 function App() {
   return (
@@ -40,10 +41,17 @@ function App() {
               <Route path="/scans" element={<Scans />} />
               <Route path="/scans/scandetails/:id" element={<ScanDetails />} />
               <Route path="/vulnerabilities" element={<Vulnerabilities />} />
+              <Route
+                path="/vulnerabilities/vulnerabilitydetails/:id"
+                element={<VulnerabilityDetails />}
+              />
               <Route path="/secrets" element={<Secrets />} />
               <Route path="/configurations" element={<Configurations />} />
               <Route path="/workflows" element={<Workflows />} />
-              <Route path="/vulnerabilityclasses" element={<VulnerabilityClasses />} />
+              <Route
+                path="/vulnerabilityclasses"
+                element={<VulnerabilityClasses />}
+              />
               <Route path="/tags" element={<Tags />} />
               <Route path="/twitter" element={<Twitter />} />
             </Routes>
@@ -54,9 +62,6 @@ function App() {
         </div>
       </div>
     </div>
-
-
-
   );
 }
 

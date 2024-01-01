@@ -71,6 +71,7 @@ def get_script(script_id):
 
 def get_workflow_tree(vulnerability_id):
     root = get_workflow(vulnerability_id, "", "True")
+    # No Workflow created
     if len(root) < 1:
         print("IMPLEMENT THE WORKFLOW!!!")
         return []
@@ -118,7 +119,7 @@ def trigger_task():
             # for each task corresponding to an API
             for vulnerability_id in task['tasks'].split(","):
                 workflow_tree = get_workflow_tree(vulnerability_id)
-                previous_output = None
+                previous_output = ""
                 for workflow in workflow_tree:
                     previous_output = run_workflow(api, workflow, previous_output)
                     # TODO: get output of each task and send it to hiemdall (hiemdall will update it to bifrost)

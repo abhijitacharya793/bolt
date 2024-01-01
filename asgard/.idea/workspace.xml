@@ -5,32 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="583327dc-baf1-4afe-9c7d-7f627b74cdf5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/asgard/asgard/helper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ragnarok/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ragnarok/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ragnarok/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ragnarok/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ragnarok/.idea/ragnarok.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ragnarok/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/backup_risks.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/scripts/templates" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asgard/asgard/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/asgard/asgard/celery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asgard/asgard/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/asgard/asgard/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asgard/asgard/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/asgard/asgard/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asgard/request.api" beforeDir="false" afterPath="$PROJECT_DIR$/asgard/request.api" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asgard/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/asgard/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/Bifrost.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/Adaptors.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/Adaptors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/Scans.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/Scans.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/adaptor/BurpsuiteExport.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/adaptor/BurpsuiteExport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/scan/ScanDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/scan/ScanDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/layout/Sidenav.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/layout/Sidenav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost/api/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ragnarok/ragnarok/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../ragnarok/ragnarok/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ragnarok/ragnarok/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ragnarok/ragnarok/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rune/rune/burpexport/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rune/rune/burpexport/helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rune/rune/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../rune/rune/entrypoint.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rune/rune/media/burpExport/burp_export.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/Vulnerabilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/Vulnerabilities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost/api/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost/api/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost/bifrost/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost/bifrost/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost/core/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost/core/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ragnarok/ragnarok/output.api" beforeDir="false" afterPath="$PROJECT_DIR$/../ragnarok/ragnarok/output.api" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ragnarok/ragnarok/request.api" beforeDir="false" afterPath="$PROJECT_DIR$/../ragnarok/ragnarok/request.api" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rune/rune/burpexport/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rune/rune/burpexport/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scanning_engine.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../scanning_engine.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../valhalla/valhalla/enricher/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../valhalla/valhalla/enricher/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../valhalla/valhalla/enricher/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/../valhalla/valhalla/enricher/helper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../valhalla/valhalla/enricher/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../valhalla/valhalla/enricher/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../valhalla/valhalla/valhalla/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../valhalla/valhalla/valhalla/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/scripts/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/scripts/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../valhalla/valhalla/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../valhalla/valhalla/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../valhalla/valhalla/valhalla/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../valhalla/valhalla/valhalla/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/data/risk.json" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/data/risk.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/data/script.json" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/data/script.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/data/tag.json" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/data/tag.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/data/vulnerability.json" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/data/vulnerability.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/data/workflow.json" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/data/workflow.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/entrypoint.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/risk/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/risk/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/risk/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/risk/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/scripts/api_to_request.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/scripts/create_nuclei_template.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/scripts/login.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/yggdrasil/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/yggdrasil/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zrun1/juice_shop_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../zrun1/juice_shop_1.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

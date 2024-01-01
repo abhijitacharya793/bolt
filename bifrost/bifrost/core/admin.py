@@ -4,7 +4,7 @@ from .models import Finding
 
 
 class FindingAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["uuid", "api"]
 
 
 admin.site.register(Finding, FindingAdmin)

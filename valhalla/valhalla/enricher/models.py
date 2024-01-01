@@ -1,5 +1,7 @@
 from django.db import models
 
+from .helper import get_api_details, enrich_api, get_vulnerability_details
+
 # from .helper import parse_xml, parse_api, save_api, enrich_scan
 
 POWER = [(1, "low"), (2, "medium"), (3, "high"), ]
@@ -16,7 +18,9 @@ class Enricher(models.Model):
         return f"{self.name}: {self.power}"
 
     def save(self, *args, **kwargs):
-        super(Enricher, self).save(*args, **kwargs)
+        api = get_api_details(self.uuid)
         # Get all vulnerabilities from yggdrasil
-
+        vulnerabilities = get_vulnerability_details()
         # Enrich scan type and save
+        self.tasks = enrich_api(api, vulnerabilities)
+        super(Enricher, self).save(*args, **kwargs)

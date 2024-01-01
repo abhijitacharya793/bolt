@@ -1,6 +1,7 @@
 from django.db import models
 
 POWER = [(1, "low"), (2, "medium"), (3, "high"), ]
+SEVERITY = [("i", "info"), ("l", "low"), ("m", "medium"), ("h", "high"), ("c", "critical")]
 
 
 class Tag(models.Model):
@@ -23,10 +24,19 @@ class Risk(models.Model):
 
 class Script(models.Model):
     name = models.CharField(max_length=100)
-    script = models.FileField(upload_to="")
+    script = models.FileField(upload_to="", null=True, blank=True)
 
     def __str__(self):
         return f"{self.name}"
+
+    def save(self, *args, **kwargs):
+        if not self.script:
+            with open(f"scripts/templates", "r") as template_file:
+                template = template_file.read()
+            with open(f"scripts/{self.name}.py", "w") as script_file:
+                script_file.write(template)
+                self.script = self.name
+        super(Script, self).save(*args, **kwargs)
 
 
 class Workflow(models.Model):
@@ -42,6 +52,7 @@ class Workflow(models.Model):
 class Vulnerability(models.Model):
     name = models.CharField(max_length=100)
     risk = models.ForeignKey(Risk, on_delete=models.CASCADE)
+    severity = models.CharField(max_length=10, choices=SEVERITY, default="i")
     power = models.IntegerField(choices=POWER)
     tag = models.ManyToManyField(Tag, blank=True)
 

@@ -4,15 +4,15 @@ from .models import Api, Header, Query
 
 
 class ApiAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["uuid", "target", "root_domain", "domain", "protocol", "protocol_version", "port", "method", "path"]
 
 
 class QueryAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["id", "name", "value", "api"]
 
 
 class HeaderAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["id", "name", "value", "api"]
 
 
 admin.site.register(Api, ApiAdmin)

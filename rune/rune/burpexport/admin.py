@@ -5,7 +5,7 @@ from .models import BurpExport
 
 # Register your models here.
 class BurpExportAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["id", "name", "scope", "power", "completion", "burpExport"]
 
 
 admin.site.register(BurpExport, BurpExportAdmin)

@@ -1,4 +1,4 @@
-# bolt
+# BO⚡LT
 
 ### naming convention
 Phases:
@@ -97,7 +97,7 @@ https://fontawesome.com/v5/search?q=input&o=r
         - `nmap --script`??
         - banner grabbing
     - Directory bruteforcing
-        - `dirb`
+        - `gobuster dir -u {target} -o output.api`
     - DNS Enumeration
         - DNS Interrogation
             - https://dnsdumpster.com
