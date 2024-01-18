@@ -1,15 +1,20 @@
-GET /? HTTP/1.1
-Host: localhost:3000
+POST /vulnerabilities/xss_s/? HTTP/1.1
+Host: localhost:8081
+Content-Length: 54
+Cache-Control: max-age=0
 sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120"
 sec-ch-ua-mobile: ?0
 sec-ch-ua-platform: "macOS"
+Origin: http://localhost:8081
+Content-Type: application/x-www-form-urlencoded
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.71 Safari/537.36
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
-Sec-Fetch-Site: none
+Sec-Fetch-Site: same-origin
 Sec-Fetch-Mode: navigate
 Sec-Fetch-User: ?1
 Sec-Fetch-Dest: document
+Referer: http://localhost:8081/vulnerabilities/xss_s/
 Accept-Encoding: gzip, deflate, br
 Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
-Cookie: language=en; welcomebanner_status=dismiss; cookieconsent_status=dismiss; token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6MjIsInVzZXJuYW1lIjoiIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicGFzc3dvcmQiOiJiNjQyYjQyMTdiMzRiMWU4ZDNiZDkxNWZjNjVjNDQ1MiIsInJvbGUiOiJjdXN0b21lciIsImRlbHV4ZVRva2VuIjoiIiwibGFzdExvZ2luSXAiOiIwLjAuMC4wIiwicHJvZmlsZUltYWdlIjoiL2Fzc2V0cy9wdWJsaWMvaW1hZ2VzL3VwbG9hZHMvZGVmYXVsdC5zdmciLCJ0b3RwU2VjcmV0IjoiIiwiaXNBY3RpdmUiOnRydWUsImNyZWF0ZWRBdCI6IjIwMjMtMTItMzAgMDY6NDc6MjQuMDE4ICswMDowMCIsInVwZGF0ZWRBdCI6IjIwMjMtMTItMzAgMDY6NDc6MjQuMDE4ICswMDowMCIsImRlbGV0ZWRBdCI6bnVsbH0sImlhdCI6MTcwMzkxODg1MX0.W-TXAg5LorHr_VktSDtpR7koeL8ZPteb6zhGUunSTohFW4EO0Aohk6zyy33VPzZetVYqUVoeA70GS_7Y2atO4bUp13xe37I0Zxfgo0hCyHyPjAh6CvJ9fLjipmN7CTc3F9UpF-N4BsROSvZGiB87Pm_BEIzRu95t44lBXyolkxw; continueCode=zWyNBPzxPa4yZNDrwVXk5BlRq8YM0aXWGbJpn9W6vg3LE7mQOje1K2oVpMk4
+Cookie: language=en; welcomebanner_status=dismiss; cookieconsent_status=dismiss; continueCode=zWyNBPzxPa4yZNDrwVXk5BlRq8YM0aXWGbJpn9W6vg3LE7mQOje1K2oVpMk4; PHPSESSID=qege58ci6tjubh5lmb916itd73; security=low
 Connection: close

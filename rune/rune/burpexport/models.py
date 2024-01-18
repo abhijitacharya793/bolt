@@ -13,6 +13,7 @@ def parse_burp_export(burp_export, name, scope, power, completion):
     for api_string in api_strings:
         api = parse_api(api_string)
         api_id = save_api(api, scope)
+        # ENRICH SAVED API IN VALHALLA
         if api_id != -1:
             enrich_scan(api_id, name, power)
     return

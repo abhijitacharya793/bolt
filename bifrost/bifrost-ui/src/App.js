@@ -5,7 +5,6 @@ import Header from "./components/layout/Header";
 import Sidenav from "./components/layout/Sidenav";
 import Footer from "./components/layout/Footer";
 
-import Home from "./components/home/Home";
 import Dashboard from "./components/home/Dashboard";
 
 import Adaptors from "./components/apps/Adaptors";
@@ -34,7 +33,6 @@ function App() {
           <Header />
           <BrowserRouter>
             <Routes>
-              <Route path="/home" element={<Home />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/bifrost" element={<Adaptors />} />
               <Route path="/adaptors" element={<Adaptors />} />

@@ -113,3 +113,10 @@ https://fontawesome.com/v5/search?q=input&o=r
     - count of forms, input fields and html tags
     - look for `FIXME`, `TODO`
  - 
+use genai to create a request
+genai to static/dynamic nature of param
+hugging chat
+or https://labs.perplexity.ai/
+use codellama and mixtral ai
+
+https://github.com/sf197/nuclei_gpt/tree/main/data/wiki

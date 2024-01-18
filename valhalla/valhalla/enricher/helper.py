@@ -46,4 +46,4 @@ def get_vulnerability_details():
 
 def enrich_api(api, vulnerabilities):
 
-    return "21,22"
+    return "17"
