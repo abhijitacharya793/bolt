@@ -40,10 +40,27 @@ def get_api_details(uuid):
     return api
 
 
-def get_vulnerability_details():
-    pass
+def get_risk_details():
+    return json.loads(requests.get(f"http://yggdrasil-api:8337/yggdrasil/v1/risk/vulnerability/").text)
 
 
-def enrich_api(api, vulnerabilities):
+def fuzzy_risk(api, risks):
+    print("&&&& target", api.target)
+    print("&&&& root domain", api.root_domain)
+    print("&&&& domain", api.domain)
+    print("&&&& protocol", api.protocol)
+    print("&&&& protocol version", api.protocol_version)
+    print("&&&& port", api.port)
+    print("&&&& method", api.method)
+    print("&&&& path", api.path)
+    print("&&&& body", api.body)
+    print("&&&& header", api.header_object)
+    print("&&&& query", api.query_object)
+    # TODO: Make these vulnerability checks configurable at yggdrasil
 
     return "17"
+
+
+def enrich_api(api, risks):
+    calculated_risks = fuzzy_risk(api, risks)
+    return calculated_risks

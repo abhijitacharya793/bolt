@@ -23,7 +23,7 @@ export default function StatisticsCard({
   };
   return (
     <>
-      <Card className={`border ${border} shadow-sm ${background}`}>
+      <Card className={`border ${border} shadow-lg ${background}`}>
         <CardHeader
           variant="gradient"
           color="gray"

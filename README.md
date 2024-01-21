@@ -120,3 +120,7 @@ or https://labs.perplexity.ai/
 use codellama and mixtral ai
 
 https://github.com/sf197/nuclei_gpt/tree/main/data/wiki
+
+docker exec -it ragnarok /bin/bash
+python manage.py loaddata data/vulnerability.json
+docker run -d -p 8080:80 vulnerables/web-dvwa

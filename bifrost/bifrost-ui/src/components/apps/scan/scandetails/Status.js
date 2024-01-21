@@ -25,7 +25,7 @@ export default function Status() {
             <p className="pt-10 pb-10 uppercase font-bold text-black">
               Threat Level
             </p>
-            <p className="py-10 text-6xl flex items-center justify-center">
+            <p className="py-10 text-6xl flex items-center justify-center text-black">
               <BoltIcon className="w-14 h-14" /> Critical
             </p>
             <p className="mx-4 py-4 px-8 rounded-md bg-white">

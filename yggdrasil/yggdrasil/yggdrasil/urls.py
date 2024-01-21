@@ -19,7 +19,6 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('yggdrasil/v1/admin/', admin.site.urls),
-    path('yggdrasil/v1/tool/', include('tool.urls')),
     path('yggdrasil/v1/risk/', include('risk.urls')),
     path('yggdrasil/v1/swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('yggdrasil/v1/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

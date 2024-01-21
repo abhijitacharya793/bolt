@@ -190,6 +190,26 @@ export default function Sidenav() {
                 </Button>
               </a>
             </li>
+            <li key="vulnerabilityclasses">
+              <a href="/vulnerabilityclasses">
+                <Button
+                  variant={
+                    pathName === "/vulnerabilityclasses" ? "gradient" : "text"
+                  }
+                  color={pathName === "/vulnerabilityclasses" ? "dark" : "blue-gray"}
+                  className="flex items-center gap-4 px-4 capitalize"
+                  fullWidth
+                >
+                  <ExclamationTriangleIcon className="w-4 h-4 text-inherit" />
+                  <Typography
+                    color="inherit"
+                    className="font-medium capitalize text-sm font-semibold"
+                  >
+                    vulnerability classes
+                  </Typography>
+                </Button>
+              </a>
+            </li>
 
             <li className="mx-3.5 mt-4 mb-2">
               <Typography

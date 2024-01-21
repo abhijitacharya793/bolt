@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Typography,
   Card,
@@ -28,7 +28,21 @@ import {
 } from "@heroicons/react/24/solid";
 
 export default function Home() {
+  const [scans, setScans] = useState([]);
   var number_of_issues = { critical: 1, high: 23, medium: 13, low: 40 };
+
+  const getScans = () => {
+    fetch("http://rune-api:8334/rune/v1/burpExport/", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => setScans(data))
+      .catch((err) => console.error(err));
+  };
+
+  useEffect(() => {
+    getScans();
+  }, []);
 
   return (
     <>
@@ -37,7 +51,7 @@ export default function Home() {
           <StatisticsCard
             icon={<ListBulletIcon className="h-6 w-6" />}
             entry="Total Scans"
-            entry_value="30"
+            entry_value={scans.length}
             change="-"
             change_value="55%"
             background="bg-blue-50"
@@ -103,9 +117,9 @@ export default function Home() {
                 >
                   <CheckCircleIcon
                     strokeWidth={3}
-                    className="h-4 w-4 text-blue-gray-200"
+                    className="h-4 w-4 text-green-200"
                   />
-                  <strong>30 done</strong> this month
+                  <strong>{scans.length} scans</strong> triggered
                 </Typography>
               </div>
               <Menu placement="left-start">
@@ -119,13 +133,19 @@ export default function Home() {
                   </IconButton>
                 </MenuHandler>
                 <MenuList>
-                  <MenuItem>Action</MenuItem>
-                  <MenuItem>Another Action</MenuItem>
-                  <MenuItem>Something else here</MenuItem>
+                  <a href="/scans">
+                    <MenuItem>Scans</MenuItem>
+                  </a>
+                  <a href="/scans">
+                    <MenuItem>Another Action</MenuItem>
+                  </a>
+                  <a href="/scans">
+                    <MenuItem>Something else here</MenuItem>
+                  </a>
                 </MenuList>
               </Menu>
             </CardHeader>
-            <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
+            <CardBody className="overflow-y-scroll px-0 pt-0 pb-2 h-96">
               <table className="w-full min-w-[640px] table-auto">
                 <thead>
                   <tr>
@@ -147,75 +167,82 @@ export default function Home() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className="py-3 px-5 border-b border-blue-gray-50">
-                      <div className="flex items-center gap-4">
+                  {scans.map((scan, index) => (
+                    <tr>
+                      <td className="py-3 px-5 border-b border-blue-gray-50">
+                        <div className="flex items-center gap-4">
+                          <Typography
+                            variant="small"
+                            color="blue-gray"
+                            className="font-bold"
+                          >
+                            {scan.name}
+                          </Typography>
+                        </div>
+                      </td>
+                      <td className="py-3 px-5 border-b border-blue-gray-50 flex">
+                        <Tooltip content={number_of_issues.critical}>
+                          <div
+                            className={`text-xs text-black cursor-pointer bg-red-100 py-1 px-2 mx-1 rounded-full border border-red-500`}
+                          >
+                            C
+                          </div>
+                        </Tooltip>
+                        <Tooltip content={number_of_issues.high}>
+                          <div
+                            className={`text-xs text-black cursor-pointer bg-orange-100 py-1 px-2 mx-1 rounded-full border border-orange-500`}
+                          >
+                            H
+                          </div>
+                        </Tooltip>
+                        <Tooltip content={number_of_issues.medium}>
+                          <div
+                            className={`text-xs text-black cursor-pointer bg-yellow-100 py-1 px-2 mx-1 rounded-full border border-yellow-500`}
+                          >
+                            M
+                          </div>
+                        </Tooltip>
+                        <Tooltip content={number_of_issues.low}>
+                          <div
+                            className={`text-xs text-black cursor-pointer bg-green-100 py-1 px-2 mx-1 rounded-full border border-green-500`}
+                          >
+                            L
+                          </div>
+                        </Tooltip>
+                      </td>
+                      <td className="py-3 px-5 border-b border-blue-gray-50">
                         <Typography
                           variant="small"
-                          color="blue-gray"
-                          className="font-bold"
+                          className="text-xs font-medium text-blue-gray-600"
                         >
-                          FK_12/12/1223
+                          140
                         </Typography>
-                      </div>
-                    </td>
-                    <td className="py-3 px-5 border-b border-blue-gray-50 flex">
-                      <Tooltip content={number_of_issues.critical}>
-                        <div
-                          className={`text-xs text-black cursor-pointer bg-red-100 py-1 px-2 mx-1 rounded-full border border-red-500`}
-                        >
-                          C
+                      </td>
+                      <td className="py-3 px-5 border-b border-blue-gray-50">
+                        <div className="w-10/12">
+                          <Typography
+                            variant="small"
+                            className="mb-1 block text-xs font-medium text-blue-gray-600"
+                          >
+                            70%
+                          </Typography>
+                          <Progress
+                            value="70"
+                            variant="gradient"
+                            color="orange"
+                            className="h-1"
+                          />
                         </div>
-                      </Tooltip>
-                      <Tooltip content={number_of_issues.high}>
-                        <div
-                          className={`text-xs text-black cursor-pointer bg-orange-100 py-1 px-2 mx-1 rounded-full border border-orange-500`}
-                        >
-                          H
-                        </div>
-                      </Tooltip>
-                      <Tooltip content={number_of_issues.medium}>
-                        <div
-                          className={`text-xs text-black cursor-pointer bg-yellow-100 py-1 px-2 mx-1 rounded-full border border-yellow-500`}
-                        >
-                          M
-                        </div>
-                      </Tooltip>
-                      <Tooltip content={number_of_issues.low}>
-                        <div
-                          className={`text-xs text-black cursor-pointer bg-green-100 py-1 px-2 mx-1 rounded-full border border-green-500`}
-                        >
-                          L
-                        </div>
-                      </Tooltip>
-                    </td>
-                    <td className="py-3 px-5 border-b border-blue-gray-50">
-                      <Typography
-                        variant="small"
-                        className="text-xs font-medium text-blue-gray-600"
-                      >
-                        140
-                      </Typography>
-                    </td>
-                    <td className="py-3 px-5 border-b border-blue-gray-50">
-                      <div className="w-10/12">
-                        <Typography
-                          variant="small"
-                          className="mb-1 block text-xs font-medium text-blue-gray-600"
-                        >
-                          50%
-                        </Typography>
-                        <Progress
-                          value="50"
-                          variant="gradient"
-                          color="orange"
-                          className="h-1"
-                        />
-                      </div>
-                    </td>
-                  </tr>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
+              {scans.length === 0 && (
+                <div className="p-4 items-center justify-center">
+                  No Scans found!
+                </div>
+              )}
             </CardBody>
           </Card>
           <Card className="border border-blue-gray-100 shadow-sm">

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Tag, Risk, Script, Workflow, Vulnerability
+from .models import Tag, Risk, Vulnerability
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -12,18 +12,6 @@ class TagSerializer(serializers.ModelSerializer):
 class RiskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Risk
-        fields = '__all__'
-
-
-class ScriptSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Script
-        fields = '__all__'
-
-
-class WorkflowSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Workflow
         fields = '__all__'
 
 

@@ -18,8 +18,8 @@ import Secrets from "./components/apps/Secrets";
 
 import Tags from "./components/configurations/Tags";
 import Configurations from "./components/configurations/Configurations";
-import Workflows from "./components/configurations/VulnerabilityClasses";
-import VulnerabilityClasses from "./components/configurations/Workflows";
+import VulnerabilityClasses from "./components/configurations/VulnerabilityClasses";
+import Workflows from "./components/configurations/Workflows";
 
 import Twitter from "./components/social/Twitter";
 import VulnerabilityDetails from "./components/apps/vulnerability/VulnerabilityDetails";

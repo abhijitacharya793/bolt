@@ -41,7 +41,6 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'risk',
-    'tool',
 ]
 
 MIDDLEWARE = [
@@ -118,8 +117,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_URL = '/scripts/'
-MEDIA_ROOT = BASE_DIR / 'scripts'
+MEDIA_URL = '/resources/'
+MEDIA_ROOT = BASE_DIR / 'resources'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

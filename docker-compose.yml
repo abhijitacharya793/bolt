@@ -134,7 +134,7 @@ services:
       context: ./ragnarok/ragnarok
     # command: 
     volumes_from:
-      - yggdrasil-api:/yggdrasil/scripts
+      - yggdrasil-api:/yggdrasil/resources
     volumes:
       - ./ragnarok/ragnarok:/ragnarok/
     environment:

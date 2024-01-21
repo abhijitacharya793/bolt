@@ -1,1 +1,0 @@
-[{"model": "risk.script", "pk": 1, "fields": {"name": "dnsenum", "script": "dnsenum.py"}}, {"model": "risk.script", "pk": 2, "fields": {"name": "whois", "script": "whois.py"}}, {"model": "risk.script", "pk": 3, "fields": {"name": "hostname", "script": "hostname.py"}}, {"model": "risk.script", "pk": 4, "fields": {"name": "missing_authn", "script": "missing_authn"}}]
