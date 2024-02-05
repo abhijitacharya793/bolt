@@ -61,7 +61,7 @@ export default function Header() {
             </Typography>
           </div>
           <div className="flex items-center">
-            <div className="mr-auto md:mr-4 md:w-56">
+            <div className="mr-auto md:mr-4 md:w-56 bg-white">
               <Input label="Search" />
             </div>
             <IconButton

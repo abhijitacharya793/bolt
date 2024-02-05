@@ -31,8 +31,9 @@ import {
 export default function Asgard() {
   const [scans, setScans] = useState([]);
 
+  // TODO: update to valhalla
   const getScans = () => {
-    fetch("http://rune-api:8334/rune/v1/burpExport/", {
+    fetch("http://valhalla-api:8335/valhalla/v1/enricher/", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -49,6 +50,7 @@ export default function Asgard() {
     console.log(e.target.name);
     navigate(`/scans/scandetails/${e.target.name}`);
   };
+  
   return (
     <>
       <div className="relative mt-8 h-36 w-full overflow-hidden rounded-xl bg-cover bg-center">

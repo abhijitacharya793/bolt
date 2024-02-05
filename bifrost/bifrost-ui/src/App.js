@@ -26,7 +26,7 @@ import VulnerabilityDetails from "./components/apps/vulnerability/VulnerabilityD
 
 function App() {
   return (
-    <div className="App bg-gray-100">
+    <div className="App bg-gray-50">
       <div className="min-h-screen bg-blue-gray-50/50">
         <Sidenav />
         <div className="p-4 xl:ml-80">

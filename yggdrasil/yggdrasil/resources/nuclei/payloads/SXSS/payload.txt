@@ -1,1 +1,4 @@
 <h1>xss</h1>
+<i>xss</i>
+<b>xss</b>
+<img src=1 onerror=alert(1)>xss</img>

@@ -28,7 +28,7 @@ export default function Status() {
             <p className="py-10 text-6xl flex items-center justify-center text-black">
               <BoltIcon className="w-14 h-14" /> Critical
             </p>
-            <p className="mx-4 py-4 px-8 rounded-md bg-white">
+            <p className="mx-4 py-4 px-8 rounded-md bg-white whitespace-break-spaces">
               You should fix your critical severity issues immediately to avoid
               a breach.
             </p>

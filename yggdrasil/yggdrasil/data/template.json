@@ -1,0 +1,10 @@
+[
+  {
+    "model": "risk.template",
+    "pk": 1,
+    "fields": {
+      "vulnerability": 12,
+      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
+    }
+  }
+]

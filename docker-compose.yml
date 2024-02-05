@@ -139,6 +139,7 @@ services:
       - ./ragnarok/ragnarok:/ragnarok/
     environment:
       - DEBUG=1
+      - DISABLE_NUCLEI_TEMPLATES_PUBLIC_DOWNLOAD=true
     stdin_open: true
     tty: true
   # # HIEMDALL API

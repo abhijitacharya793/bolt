@@ -1,0 +1,2 @@
+workflows:
+  - template: /yggdrasil/resources/nuclei/templates/SXSS/template1.yaml

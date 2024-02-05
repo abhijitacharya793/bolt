@@ -85,7 +85,7 @@ export default function ScanDetails() {
                                     managed by <code className='text-green-100'>bifrost</code>
                                 </Typography>
                             </CardHeader>
-                            <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
+                            <CardBody className="px-0 pt-0 pb-2">
                                 <div className="grid grid-cols-6 gap-4">
                                     <div className='col-span-4'>
                                         <div className="grid grid-cols-6 gap-4 px-4 py-2">

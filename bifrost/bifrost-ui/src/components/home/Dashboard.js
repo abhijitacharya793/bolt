@@ -31,8 +31,9 @@ export default function Home() {
   const [scans, setScans] = useState([]);
   var number_of_issues = { critical: 1, high: 23, medium: 13, low: 40 };
 
+  // TODO: 
   const getScans = () => {
-    fetch("http://rune-api:8334/rune/v1/burpExport/", {
+    fetch("http://valhalla-api:8335/valhalla/v1/enricher/", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -239,8 +240,10 @@ export default function Home() {
                 </tbody>
               </table>
               {scans.length === 0 && (
-                <div className="p-4 items-center justify-center">
-                  No Scans found!
+                <div className="py-10">
+                  <div className="mx-48 p-4 flex items-center justify-center h-24 uppercase border border-black rounded-md shadow-md text-sm">
+                    No Scans found
+                  </div>
                 </div>
               )}
             </CardBody>

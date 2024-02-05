@@ -25,6 +25,7 @@ class Risk(models.Model):
 class Vulnerability(models.Model):
     name = models.CharField(max_length=100)
     risk = models.ForeignKey(Risk, on_delete=models.CASCADE)
+    command = models.CharField(max_length=1000, null=True, blank=True)
     severity = models.CharField(max_length=10, choices=SEVERITY, default="i")
     power = models.IntegerField(choices=POWER)
     tag = models.ManyToManyField(Tag, blank=True)
@@ -40,3 +41,8 @@ class Vulnerability(models.Model):
     #         wfs.append(wfs[-1].next_workflows.filter(vulnerability__id=self.id).get())
     #     print(wfs)
     #     return wfs
+
+
+class Template(models.Model):
+    vulnerability = models.ForeignKey(Vulnerability, on_delete=models.CASCADE)
+    path = models.CharField(max_length=500)

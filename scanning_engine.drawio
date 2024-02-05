@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-01-10T18:56:22.502Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="5CDmdUywlsrwFRSUuDiT" version="22.1.16" type="device" pages="10">
+<mxfile host="Electron" modified="2024-02-04T17:29:41.451Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="_-GF9_XYaS9nHcbmFcBc" version="22.1.2" type="device" pages="11">
   <diagram name="apps" id="DyXkcEBMjTZBDQ0fTSw5">
-    <mxGraphModel dx="1242" dy="734" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="934" dy="655" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -71,7 +71,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="dak4XQJHdYPrgYxfZc9T" name="arch">
-    <mxGraphModel dx="1242" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="794" dy="557" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -354,7 +354,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="RalNaYcLJkrpcXKiBYHb" name="bifrost">
-    <mxGraphModel dx="1242" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="794" dy="557" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -442,7 +442,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="s51SVfhhv--vpCRPZxrS" name="yggdrasil">
-    <mxGraphModel dx="1242" dy="734" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="780" dy="542" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -567,7 +567,7 @@
         <mxCell id="2prFTFPKdQ0E4I0v8E97-37" value="Tool&lt;br&gt;(sqlmap)" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="590" y="1170" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="lfCDUoKo7E-E-5i2mRRl-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="lfCDUoKo7E-E-5i2mRRl-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="110" y="1300" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
@@ -582,147 +582,170 @@
     </mxGraphModel>
   </diagram>
   <diagram id="9HduSrQxKCCf9CkHL_jp" name="flows">
-    <mxGraphModel dx="1242" dy="736" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="794" dy="557" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-42" value="HTML Encoding&lt;br&gt;URL&amp;nbsp;Encoding&lt;br&gt;Base64&amp;nbsp;Encoding&lt;br&gt;&lt;br&gt;Client-side Filtering bypass&lt;br&gt;Server-side Filtering bypass&lt;br&gt;XSS Filter bypass&lt;br&gt;&lt;br&gt;Evasion&lt;br&gt;Squid-proxy browser based restriction" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-42" value="HTML Encoding&lt;br&gt;URL&amp;nbsp;Encoding&lt;br&gt;Base64&amp;nbsp;Encoding&lt;br&gt;&lt;br&gt;Client-side Filtering bypass&lt;br&gt;Server-side Filtering bypass&lt;br&gt;XSS Filter bypass&lt;br&gt;&lt;br&gt;Evasion&lt;br&gt;Squid-proxy browser based restriction" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1880" y="30" width="240" height="480" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-16" value="Reflected&lt;br&gt;Stored&lt;br&gt;DOM&lt;br&gt;XSSer&lt;br&gt;Dalfox" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-16" value="Reflected&lt;br&gt;Stored&lt;br&gt;DOM&lt;br&gt;XSSer&lt;br&gt;Dalfox" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="1100" y="30" width="240" height="165" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-15" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-15" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="840" y="30" width="240" height="480" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZP9pHM3mcjdmcjwccLJq-3" target="ZP9pHM3mcjdmcjwccLJq-4">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ZP9pHM3mcjdmcjwccLJq-3" target="ZP9pHM3mcjdmcjwccLJq-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-3" value="&lt;h1&gt;Root Domain&lt;/h1&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=#666666;fillColor=#f5f5f5;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;fontColor=#333333;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-3" value="&lt;h1&gt;Root Domain&lt;/h1&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=#666666;fillColor=#f5f5f5;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;fontColor=#333333;" parent="1" vertex="1">
           <mxGeometry x="220" y="30" width="190" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZP9pHM3mcjdmcjwccLJq-4" target="ZP9pHM3mcjdmcjwccLJq-5">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ZP9pHM3mcjdmcjwccLJq-4" target="ZP9pHM3mcjdmcjwccLJq-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZP9pHM3mcjdmcjwccLJq-4" target="ZP9pHM3mcjdmcjwccLJq-7">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ZP9pHM3mcjdmcjwccLJq-4" target="ZP9pHM3mcjdmcjwccLJq-7" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-4" value="&lt;h1&gt;Subdomain&lt;/h1&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-4" value="&lt;h1&gt;Subdomain&lt;/h1&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="220" y="190" width="190" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-5" value="&lt;h1&gt;UI&lt;/h1&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-5" value="&lt;h1&gt;UI&lt;/h1&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="30" y="380" width="190" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-7" value="&lt;h1&gt;API&lt;/h1&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-7" value="&lt;h1&gt;API&lt;/h1&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="410" y="380" width="190" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-11" value="Webserver metafiles&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Web App Tech Fingerprinting&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;WAF Detection&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Copy websites - HTTRack&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Screenshots - Eyewitness&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Passive Crawling with ZAP&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Web Server Fingerprinting&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Nikto&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Gobuster - File and Directory Bruteforce&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Amass - Web recon&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-11" value="Webserver metafiles&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Web App Tech Fingerprinting&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;WAF Detection&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Copy websites - HTTRack&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Screenshots - Eyewitness&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Passive Crawling with ZAP&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Web Server Fingerprinting&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Nikto&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Gobuster - File and Directory Bruteforce&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Amass - Web recon&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="840" y="325" width="240" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-12" value="WHOIS&lt;br style=&quot;border-color: var(--border-color); color: rgb(51, 51, 51); text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(51, 51, 51); text-align: left;&quot;&gt;Netcraft&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); color: rgb(51, 51, 51); text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(51, 51, 51); text-align: left;&quot;&gt;Subdomain Enum&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); color: rgb(51, 51, 51); text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(51, 51, 51); text-align: left;&quot;&gt;DNS Zone Transfers&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); color: rgb(51, 51, 51); text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(51, 51, 51); text-align: left;&quot;&gt;DNS Enum&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-12" value="WHOIS&lt;br style=&quot;border-color: var(--border-color); color: rgb(51, 51, 51); text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(51, 51, 51); text-align: left;&quot;&gt;Netcraft&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); color: rgb(51, 51, 51); text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(51, 51, 51); text-align: left;&quot;&gt;Subdomain Enum&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); color: rgb(51, 51, 51); text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(51, 51, 51); text-align: left;&quot;&gt;DNS Zone Transfers&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); color: rgb(51, 51, 51); text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(51, 51, 51); text-align: left;&quot;&gt;DNS Enum&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="895" y="75" width="130" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-13" value="Google Dorks" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-13" value="Google Dorks" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="910" y="220" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-14" value="XSS" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-14" value="XSS" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="1195" y="40" width="50" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-17" value="Error based&lt;br&gt;Union&lt;br&gt;Boolean&lt;br&gt;Time&lt;br&gt;NoSQL" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-17" value="Error based&lt;br&gt;Union&lt;br&gt;Boolean&lt;br&gt;Time&lt;br&gt;NoSQL" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="1100" y="330" width="240" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-18" value="SQLi" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-18" value="SQLi" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="1195" y="340" width="50" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-19" value="HTTP Method Tampering&lt;br&gt;HTTP Method Enumeration&lt;br&gt;Attacking Basic HTTP Authentication&lt;br&gt;Attacking HTTP Digest Authentication (Hydra)&lt;br&gt;Sensitive Data Exposure&lt;br&gt;Dictionary Attack&lt;br&gt;OTP Security" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-19" value="HTTP Method Tampering&lt;br&gt;HTTP Method Enumeration&lt;br&gt;Attacking Basic HTTP Authentication&lt;br&gt;Attacking HTTP Digest Authentication (Hydra)&lt;br&gt;Sensitive Data Exposure&lt;br&gt;Dictionary Attack&lt;br&gt;OTP Security" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1360" y="30" width="240" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-20" value="Common Attacks" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-20" value="Common Attacks" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="1420" y="40" width="120" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-23" value="Session Hijacking&lt;br&gt;Session Fixation&lt;br&gt;Cookie Tampering" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-23" value="Session Hijacking&lt;br&gt;Session Fixation&lt;br&gt;Cookie Tampering" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1360" y="300" width="240" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-24" value="Common Attacks" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-24" value="Common Attacks" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="1420" y="310" width="120" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-25" value="CSRF&lt;br&gt;Advanced Electro Forum CSRF" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-25" value="CSRF&lt;br&gt;Advanced Electro Forum CSRF" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="1100" y="210" width="240" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-26" value="CSRF" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-26" value="CSRF" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="1190" y="220" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-31" value="Command Injection&lt;br&gt;via File Backup&lt;br&gt;via PHP Code Injection&lt;br&gt;via MySQL" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-31" value="Command Injection&lt;br&gt;via File Backup&lt;br&gt;via PHP Code Injection&lt;br&gt;via MySQL" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1620" y="30" width="240" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-32" value="RCE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-32" value="RCE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="1715" y="30" width="50" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-33" value="Basic File Upload Scenarios&lt;br&gt;File Upload Extension Filter Bypass&lt;br&gt;PHPx Blacklist Bypass&lt;br&gt;Directory Traversal&lt;br&gt;LFI/RFI" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-33" value="Basic File Upload Scenarios&lt;br&gt;File Upload Extension Filter Bypass&lt;br&gt;PHPx Blacklist Bypass&lt;br&gt;Directory Traversal&lt;br&gt;LFI/RFI" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1620" y="390" width="240" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-34" value="File Upload" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-34" value="File Upload" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="1695" y="390" width="90" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-36" value="&lt;br&gt;Wordpress Version Enumeration&lt;br&gt;Wordpress AdRotate&lt;br&gt;Wordpress User, Plugin &amp;amp; Theme Enumeration&lt;br&gt;Wordpress RCE&lt;br&gt;Wordpress nmap NSE Scripts&lt;br&gt;WPScan&lt;br&gt;Wordpress Brutefofrce attacks&lt;br&gt;Wordpress File Upload&lt;br&gt;Wordpress&amp;nbsp;Stored XSS&lt;br&gt;Wordpress&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-36" value="&lt;br&gt;Wordpress Version Enumeration&lt;br&gt;Wordpress AdRotate&lt;br&gt;Wordpress User, Plugin &amp;amp; Theme Enumeration&lt;br&gt;Wordpress RCE&lt;br&gt;Wordpress nmap NSE Scripts&lt;br&gt;WPScan&lt;br&gt;Wordpress Brutefofrce attacks&lt;br&gt;Wordpress File Upload&lt;br&gt;Wordpress&amp;nbsp;Stored XSS&lt;br&gt;Wordpress&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1620" y="155" width="240" height="215" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-37" value="CMS" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-37" value="CMS" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="1715" y="165" width="50" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-41" value="Encoding, Filtering &amp;amp; Evasion" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-41" value="Encoding, Filtering &amp;amp; Evasion" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="1905" y="40" width="190" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-43" value="Recon" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-43" value="Recon" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="930" y="30" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-46" value="Old API Version&lt;br&gt;Query param IDOR&lt;br&gt;Changing Auth token&lt;br&gt;HTTP Parameter Pollution" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-46" value="Old API Version&lt;br&gt;Query param IDOR&lt;br&gt;Changing Auth token&lt;br&gt;HTTP Parameter Pollution" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="2140" y="30" width="240" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-47" value="BOLA" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-47" value="BOLA" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="2230" y="30" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-48" value="CSRF&lt;br&gt;JWT Signature verification&lt;br&gt;JWT - JKU Header Injection&lt;br&gt;JWT - None Algorithm&lt;br&gt;CSRF Login Attack&lt;br&gt;Remove Auth Token&lt;br&gt;Remove CSRF Token&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-48" value="CSRF&lt;br&gt;JWT Signature verification&lt;br&gt;JWT - JKU Header Injection&lt;br&gt;JWT - None Algorithm&lt;br&gt;CSRF Login Attack&lt;br&gt;Remove Auth Token&lt;br&gt;Remove CSRF Token&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="2140" y="160" width="240" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-49" value="User Access Control" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-49" value="User Access Control" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="2190" y="160" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-50" value="Pagination DOS&lt;br&gt;Remove Captcha&lt;br&gt;Bypass Captcha&lt;br&gt;Same Captcha replay&lt;br&gt;Remove cookie" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-50" value="Pagination DOS&lt;br&gt;Remove Captcha&lt;br&gt;Bypass Captcha&lt;br&gt;Same Captcha replay&lt;br&gt;Remove cookie" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="2140" y="340" width="240" height="170" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-51" value="Rate Limiting" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-51" value="Rate Limiting" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="2210" y="340" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-52" value="&lt;br&gt;Admin role create&lt;br&gt;Admin role modify&lt;br&gt;Modify account" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-52" value="&lt;br&gt;Admin role create&lt;br&gt;Admin role modify&lt;br&gt;Modify account" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="2400" y="30" width="240" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-53" value="Mass Assignment" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-53" value="Mass Assignment" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="2455" y="30" width="130" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-54" value="Exposed Prometheus metrics&lt;br&gt;Rolls default homepage&lt;br&gt;Text Injection with invalid URLs&lt;br&gt;Appspec yml disclosure&lt;br&gt;Spring boot beans actuator exposed&lt;br&gt;apache config file disclosure&lt;br&gt;MSMTP - Config Exposure&lt;br&gt;NGINX Status Disclosure&lt;br&gt;Git config exposed&lt;br&gt;Git creds exposed&lt;br&gt;Laravel Telescope enabled&lt;br&gt;Firebase Config&lt;br&gt;Flask debug mode&lt;br&gt;Graphql debug mode&lt;br&gt;Header Reflection in invalid URLs&lt;br&gt;Host Header Injection Open Redirect&lt;br&gt;Parameters.yml&lt;br&gt;Laravel - Sensitive info Discolosed&lt;br&gt;Struts Debug Mode&lt;br&gt;Dockerfile exposed&lt;br&gt;NGinx server version&lt;br&gt;Graphql Field suggestions&lt;br&gt;CICD config&lt;br&gt;Cookie misconfigurations&lt;br&gt;EXpress Stacktrace&lt;br&gt;..." style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-54" value="Exposed Prometheus metrics&lt;br&gt;Rolls default homepage&lt;br&gt;Text Injection with invalid URLs&lt;br&gt;Appspec yml disclosure&lt;br&gt;Spring boot beans actuator exposed&lt;br&gt;apache config file disclosure&lt;br&gt;MSMTP - Config Exposure&lt;br&gt;NGINX Status Disclosure&lt;br&gt;Git config exposed&lt;br&gt;Git creds exposed&lt;br&gt;Laravel Telescope enabled&lt;br&gt;Firebase Config&lt;br&gt;Flask debug mode&lt;br&gt;Graphql debug mode&lt;br&gt;Header Reflection in invalid URLs&lt;br&gt;Host Header Injection Open Redirect&lt;br&gt;Parameters.yml&lt;br&gt;Laravel - Sensitive info Discolosed&lt;br&gt;Struts Debug Mode&lt;br&gt;Dockerfile exposed&lt;br&gt;NGinx server version&lt;br&gt;Graphql Field suggestions&lt;br&gt;CICD config&lt;br&gt;Cookie misconfigurations&lt;br&gt;EXpress Stacktrace&lt;br&gt;..." style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="2660" y="30" width="240" height="480" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-55" value="Security Misconfigurations" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-55" value="Security Misconfigurations" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="2690" y="40" width="180" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-56" value="localhost&lt;br&gt;encoded localhost&lt;br&gt;aws ssrf&lt;br&gt;port scan ssrf&lt;br&gt;pdf ssrf&lt;br&gt;LFI via SSRF" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-56" value="localhost&lt;br&gt;encoded localhost&lt;br&gt;aws ssrf&lt;br&gt;port scan ssrf&lt;br&gt;pdf ssrf&lt;br&gt;LFI via SSRF" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="2400" y="140" width="240" height="170" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-57" value="SSRF" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-57" value="SSRF" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="2490" y="140" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-58" value="&lt;br&gt;HTTP Header abuse via CLRF&lt;br&gt;HTTP Response Splitting via CLRF" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-58" value="&lt;br&gt;HTTP Header abuse via CLRF&lt;br&gt;HTTP Response Splitting via CLRF" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="2400" y="325" width="240" height="75" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-59" value="CLRF" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-59" value="CLRF" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="2490" y="325" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-60" value="&lt;br&gt;Freemarker&lt;br&gt;Twig&lt;br&gt;Flask/Jinja" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-60" value="&lt;br&gt;Freemarker&lt;br&gt;Twig&lt;br&gt;Flask/Jinja" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="2400" y="420" width="240" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="ZP9pHM3mcjdmcjwccLJq-61" value="SSTI" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="ZP9pHM3mcjdmcjwccLJq-61" value="SSTI" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="2495" y="420" width="50" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="IbN8EXRZf1Df7lgNA-Wo" name="scanning engine">
+    <mxGraphModel dx="794" dy="557" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="qZlbizsTddiNS1Fv0Nq9-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qZlbizsTddiNS1Fv0Nq9-1" target="qZlbizsTddiNS1Fv0Nq9-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qZlbizsTddiNS1Fv0Nq9-1" value="predict" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZlbizsTddiNS1Fv0Nq9-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qZlbizsTddiNS1Fv0Nq9-2" target="qZlbizsTddiNS1Fv0Nq9-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qZlbizsTddiNS1Fv0Nq9-2" value="probe" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZlbizsTddiNS1Fv0Nq9-4" value="prove" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="90" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

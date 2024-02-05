@@ -58,7 +58,7 @@ def fuzzy_risk(api, risks):
     print("&&&& query", api.query_object)
     # TODO: Make these vulnerability checks configurable at yggdrasil
 
-    return "17"
+    return "12"
 
 
 def enrich_api(api, risks):

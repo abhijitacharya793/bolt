@@ -12,6 +12,7 @@ class Enricher(models.Model):
     uuid = models.CharField(max_length=100)
     power = models.IntegerField(choices=POWER)
     tasks = models.CharField(max_length=1000, null=True, blank=True)
+    completion = models.IntegerField(default=0)
     triggered = models.BooleanField(default=False)
 
     def __str__(self):
