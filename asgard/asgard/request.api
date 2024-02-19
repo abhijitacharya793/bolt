@@ -1,16 +1,12 @@
-GET /vulnerabilities/xss_r/?name=xss?name=xss& HTTP/1.1
-Host: localhost
-sec-ch-ua: "Chromium";v="119", "Not?A_Brand";v="24"
-sec-ch-ua-mobile: ?0
-sec-ch-ua-platform: "Windows"
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.6045.199 Safari/537.36
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
-Sec-Fetch-Site: same-origin
-Sec-Fetch-Mode: navigate
-Sec-Fetch-User: ?1
-Sec-Fetch-Dest: document
-Referer: http://localhost/vulnerabilities/xss_r/
+POST /comment.php? HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
 Accept-Encoding: gzip, deflate, br
-Accept-Language: en-US,en;q=0.9
-Cookie: PHPSESSID=jpfk7ele00pj003dmk1u6c82v1; security=low
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 76
+Origin: http://testphp.vulnweb.com
 Connection: close
+Referer: http://testphp.vulnweb.com/comment.php?aid=1
+Cookie: login=test%2Ftest

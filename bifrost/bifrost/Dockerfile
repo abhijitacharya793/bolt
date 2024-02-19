@@ -13,5 +13,4 @@ COPY ./entrypoint.sh /bifrost/entrypoint.sh
 
 COPY . /bifrost
 
-# ENTRYPOINT ["/bifrost/entrypoint.sh"]
-CMD ["bash"]
+ENTRYPOINT ["/bifrost/entrypoint.sh"]

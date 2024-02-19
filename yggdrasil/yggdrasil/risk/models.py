@@ -1,11 +1,21 @@
 from django.db import models
 
 POWER = [(1, "low"), (2, "medium"), (3, "high"), ]
+PART = [("h", "header"), ("b", "body"), ("q", "query param"), ]
 SEVERITY = [("i", "info"), ("l", "low"), ("m", "medium"), ("h", "high"), ("c", "critical")]
 
 
 class Tag(models.Model):
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.name}"
+
+class Fuzzing(models.Model):
+    part = models.CharField(max_length=100, null=True, blank=True)
+    description = models.TextField(max_length=500, null=True, blank=True)
+    remediation = models.TextField(max_length=500, null=True, blank=True)
+    steps_to_reproduce = models.TextField(max_length=500, null=True, blank=True)
 
     def __str__(self):
         return f"{self.name}"
@@ -21,7 +31,6 @@ class Risk(models.Model):
     def __str__(self):
         return f"{self.name}"
 
-
 class Vulnerability(models.Model):
     name = models.CharField(max_length=100)
     risk = models.ForeignKey(Risk, on_delete=models.CASCADE)
@@ -29,6 +38,7 @@ class Vulnerability(models.Model):
     severity = models.CharField(max_length=10, choices=SEVERITY, default="i")
     power = models.IntegerField(choices=POWER)
     tag = models.ManyToManyField(Tag, blank=True)
+    fuzzing_rules = models.ManyToManyField(Fuzzing, blank=True)
 
     def __str__(self):
         return f"{self.name}"
@@ -46,3 +56,4 @@ class Vulnerability(models.Model):
 class Template(models.Model):
     vulnerability = models.ForeignKey(Vulnerability, on_delete=models.CASCADE)
     path = models.CharField(max_length=500)
+

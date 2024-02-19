@@ -7,15 +7,15 @@ POWER = [(1, "low"), (2, "medium"), (3, "high"), ]
 
 
 @shared_task
-def parse_burp_export(burp_export, name, scope, power):
-    print(f"PARSING BURPSUITE EXPORT for: {name} for scope {scope}")
+def parse_burp_export(burp_export, scan_id, scope, power):
+    print(f"PARSING BURPSUITE EXPORT for: {scan_id} for scope {scope}")
     api_strings = parse_xml(burp_export)
     for api_string in api_strings:
         api = parse_api(api_string)
         api_id = save_api(api, scope)
         # ENRICH SAVED API IN VALHALLA
         if api_id != -1:
-            enrich_scan(api_id, name, power)
+            enrich_scan(api_id, scan_id, power, scope)
     return
 
 
@@ -32,4 +32,4 @@ class BurpExport(models.Model):
         super(BurpExport, self).save(*args, **kwargs)
         # Call parsing task
         parse_burp_export.apply_async(
-            args=['media/' + self.burpExport.name, self.name, self.scope, self.power])
+            args=['media/' + self.burpExport.name, self.id, self.scope, self.power])

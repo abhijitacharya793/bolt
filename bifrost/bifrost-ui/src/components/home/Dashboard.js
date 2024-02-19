@@ -55,8 +55,8 @@ export default function Home() {
             entry_value={scans.length}
             change="-"
             change_value="55%"
-            background="bg-blue-50"
-            border="border-blue-500"
+            background="bg-white"
+            border="border-black"
           />
           <StatisticsCard
             icon={<ExclamationCircleIcon className="h-6 w-6" />}

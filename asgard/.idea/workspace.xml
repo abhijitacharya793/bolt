@@ -6,37 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="583327dc-baf1-4afe-9c7d-7f627b74cdf5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asgard/asgard/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/asgard/asgard/celery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asgard/request.api" beforeDir="false" afterPath="$PROJECT_DIR$/asgard/request.api" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/Scans.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/Scans.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/scan/ScanDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/scan/ScanDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/scan/scandetails/Status.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/apps/scan/scandetails/Status.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/configurations/Configurations.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/configurations/Configurations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/home/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/home/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/components/layout/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../bifrost/bifrost-ui/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ragnarok/ragnarok/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../ragnarok/ragnarok/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ragnarok/ragnarok/output.api" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ragnarok/ragnarok/request.api" beforeDir="false" afterPath="$PROJECT_DIR$/../ragnarok/ragnarok/request.api" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ragnarok/ragnarok/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ragnarok/ragnarok/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rune/rune/burpexport/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rune/rune/burpexport/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rune/rune/burpexport/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rune/rune/burpexport/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asgard/asgard/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/asgard/asgard/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hiemdall/hiemdall/hiemdall/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../hiemdall/hiemdall/hiemdall/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../scanning_engine.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../scanning_engine.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../valhalla/valhalla/enricher/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../valhalla/valhalla/enricher/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../valhalla/valhalla/enricher/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/../valhalla/valhalla/enricher/helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../valhalla/valhalla/enricher/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../valhalla/valhalla/enricher/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/data/tag.json" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/data/tag.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/data/vulnerability.json" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/data/vulnerability.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/entrypoint.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/resources/nuclei/payloads/SXSS/payload.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/resources/nuclei/payloads/SXSS/payload.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/resources/nuclei/templates/SXSS/template.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/risk/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/risk/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/risk/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/risk/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/risk/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/risk/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/risk/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/risk/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yggdrasil/yggdrasil/risk/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../yggdrasil/yggdrasil/risk/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

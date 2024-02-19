@@ -8,9 +8,10 @@ POWER = [(1, "low"), (2, "medium"), (3, "high"), ]
 
 
 class Enricher(models.Model):
-    name = models.CharField(max_length=100)
+    scan_id = models.IntegerField()
     uuid = models.CharField(max_length=100)
     power = models.IntegerField(choices=POWER)
+    scope = models.CharField(max_length=500, null=True, blank=True)
     tasks = models.CharField(max_length=1000, null=True, blank=True)
     completion = models.IntegerField(default=0)
     triggered = models.BooleanField(default=False)

@@ -93,7 +93,7 @@ def run_command(api, vulnerability):
         os.popen(f"{_EXEC}ragnarok python3 /yggdrasil/resources/utils/create_template.py --template {template['path']}")
     # TODO: create payloads
     # run script on ragnarok
-    return os.popen(f'{_EXEC}ragnarok nuclei -u {api.target} -t /ragnarok/input/').read()
+    return os.popen(f'{_EXEC}ragnarok nuclei -u {api.target} -t /ragnarok/input/ -o output.api -irr -me').read()
 
 
 @app.task
