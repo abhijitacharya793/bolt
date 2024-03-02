@@ -9,7 +9,8 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-export default function ScanTimeline() {
+export default function ScanTimeline({ scanDetails }) {
+  console.log(scanDetails);
   return (
     <>
       <div className="mt-16">
@@ -38,7 +39,9 @@ export default function ScanTimeline() {
                       <td className="p-4 border-b border-blue-gray-50">
                         Count of APIs
                       </td>
-                      <td className="p-4 border-b border-blue-gray-50">120</td>
+                      <td className="p-4 border-b border-blue-gray-50">
+                        {scanDetails.length}
+                      </td>
                     </tr>
                     <tr className="even:bg-blue-gray-50/50">
                       <td className="p-4 border-b border-blue-gray-50">

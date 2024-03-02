@@ -11,6 +11,7 @@ python manage.py migrate
 
 #python manage.py dumpdata risk.risk > risk.json
 python manage.py loaddata data/tag.json
+python manage.py loaddata data/fuzzing.json
 python manage.py loaddata data/risk.json
 python manage.py loaddata data/vulnerability.json
 python manage.py loaddata data/template.json

@@ -9,30 +9,22 @@ import {
   Card,
   CardBody,
   CardHeader,
-  CardFooter,
-  Avatar,
   Typography,
   Tabs,
   TabsHeader,
   Tab,
-  Tooltip,
-  Progress,
-  Chip,
   Button,
 } from "@material-tailwind/react";
 import {
-  HomeIcon,
-  ChatBubbleLeftEllipsisIcon,
-  Cog6ToothIcon,
   QueueListIcon,
-  EllipsisVerticalIcon,
   GlobeAsiaAustraliaIcon,
-  LinkIcon,
   DevicePhoneMobileIcon,
   CloudIcon,
 } from "@heroicons/react/24/solid";
+import API from "./API";
 
 export default function Asgard() {
+  const [burpExport, setBurpExport] = useState({});
   const [scans, setScans] = useState({});
   const [toggle, setToggle] = React.useState([]);
 
@@ -41,7 +33,18 @@ export default function Asgard() {
     newArr[key] = toggle[key] === 0 ? 1 : 0;
     setToggle(newArr);
   };
-  // TODO: update to valhalla
+  // rune
+  const getExport = () => {
+    fetch("http://rune-api:8334/rune/v1/burpExport/", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setBurpExport(data);
+      })
+      .catch((err) => console.error(err));
+  };
+  // valhalla
   const getScans = () => {
     fetch("http://valhalla-api:8335/valhalla/v1/enricher/", {
       method: "GET",
@@ -56,12 +59,12 @@ export default function Asgard() {
   };
 
   useEffect(() => {
+    getExport();
     getScans();
   }, []);
 
   let navigate = useNavigate();
   const navigateToScanDetails = (e) => {
-    console.log(e.target.name);
     navigate(`/scans/scandetails/${e.target.name}`);
   };
 
@@ -134,7 +137,8 @@ export default function Asgard() {
                       >
                         <div className="flex items-center w-full text-base font-sans font-semibold leading-relaxed">
                           <span className="w-full flex ">
-                            {scan_id} &nbsp;|&nbsp; this scan has&nbsp;
+                            {burpExport[scan_id - 1]["name"]} &nbsp;|&nbsp; this
+                            scan has&nbsp;
                             <p
                               className={` ${
                                 toggle[index] === 1
@@ -169,6 +173,8 @@ export default function Asgard() {
                                 "Sr. No.",
                                 "scope",
                                 "power",
+                                "method",
+                                "api",
                                 "completion",
                                 "triggered",
                                 "",
@@ -208,84 +214,17 @@ export default function Asgard() {
                                     : "border-b border-blue-gray-50"
                                 }`;
                                 return (
-                                  <tr key={scan_id}>
-                                    <td className={className}>{id}</td>
-                                    <td className={className}>
-                                      <p className="flex">
-                                        {scope.split(",").map((name, key) => (
-                                          <Tooltip key={name} content={name}>
-                                            <LinkIcon
-                                              className={`cursor-pointer w-6 border-2 border-white rounded-full ${
-                                                key === 0 ? "" : "-ml-2.5"
-                                              }`}
-                                            />
-                                          </Tooltip>
-                                        ))}
-                                      </p>
-                                    </td>
-                                    <td className={className}>
-                                      <Chip
-                                        value={
-                                          (power === 1 && "low") ||
-                                          (power === 2 && "medium") ||
-                                          (power === 3 && "high")
-                                        }
-                                        className="rounded-full w-fit"
-                                        variant="ghost"
-                                        color={
-                                          (power === 1 && "green") ||
-                                          (power === 2 && "orange") ||
-                                          (power === 3 && "red")
-                                        }
-                                      />
-                                    </td>
-                                    <td className={className}>
-                                      <div className="w-10/12">
-                                        <Typography
-                                          variant="small"
-                                          className="mb-1 block text-xs font-medium text-blue-gray-600"
-                                        >
-                                          {completion}%
-                                        </Typography>
-                                        <Progress
-                                          value={completion}
-                                          variant="gradient"
-                                          color={
-                                            completion === 100
-                                              ? "green"
-                                              : "gray"
-                                          }
-                                          className="h-1"
-                                        />
-                                      </div>
-                                    </td>
-                                    <td className={className}>
-                                      <Chip
-                                        value={
-                                          (triggered === true && "Y") ||
-                                          (triggered === false && "N")
-                                        }
-                                        className="rounded-full w-fit"
-                                        variant="ghost"
-                                        color={
-                                          (triggered === true && "green") ||
-                                          (triggered === false && "orange")
-                                        }
-                                      />
-                                    </td>
-                                    <td className={className}>
-                                      <Typography
-                                        as="a"
-                                        href="#"
-                                        className="text-xs font-semibold text-blue-gray-600"
-                                      >
-                                        <EllipsisVerticalIcon
-                                          strokeWidth={2}
-                                          className="h-5 w-5 text-inherit"
-                                        />
-                                      </Typography>
-                                    </td>
-                                  </tr>
+                                  <API
+                                    className={className}
+                                    id={id}
+                                    scan_id={scan_id}
+                                    scope={scope}
+                                    power={power}
+                                    completion={completion}
+                                    tzsks={tasks}
+                                    triggered={triggered}
+                                    uuid={uuid}
+                                  />
                                 );
                               }
                             )}

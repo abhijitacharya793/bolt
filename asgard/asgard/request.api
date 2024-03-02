@@ -1,12 +1,9 @@
-POST /comment.php? HTTP/1.1
+GET /artists.php?artist=1?artist=1& HTTP/1.1
 Host: testphp.vulnweb.com
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
 Accept-Encoding: gzip, deflate, br
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 76
-Origin: http://testphp.vulnweb.com
 Connection: close
-Referer: http://testphp.vulnweb.com/comment.php?aid=1
+Referer: http://testphp.vulnweb.com/artists.php
 Cookie: login=test%2Ftest

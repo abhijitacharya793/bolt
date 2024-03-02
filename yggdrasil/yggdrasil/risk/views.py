@@ -1,13 +1,18 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 
-from .models import Risk, Vulnerability, Tag
+from .models import Risk, Vulnerability, Tag, Fuzzing
 from .serializers import *
 
 
 class TagModelViewSet(ModelViewSet):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
+
+
+class FuzzingModelViewSet(ModelViewSet):
+    queryset = Fuzzing.objects.all()
+    serializer_class = FuzzingSerializer
 
 
 class RiskModelViewSet(ModelViewSet):

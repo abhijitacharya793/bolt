@@ -8,6 +8,11 @@ class TagSerializer(serializers.ModelSerializer):
         model = Tag
         fields = '__all__'
 
+class FuzzingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Fuzzing
+        fields = '__all__'
+
 
 class RiskSerializer(serializers.ModelSerializer):
     class Meta:

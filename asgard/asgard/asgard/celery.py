@@ -81,8 +81,6 @@ def run_command(api, vulnerability):
     # save request to file
     with open("request.api", 'w') as req_file:
         req_file.write(api.__str__())
-    # clean up and copy request to ragnarok
-    os.popen(f"{_EXEC}ragnarok rm -rf /ragnarok/input/template*")
     os.popen(f"{_CP}/asgard/request.api ragnarok:/ragnarok/request.api")
     # TODO: create nuclei template
 
@@ -93,7 +91,11 @@ def run_command(api, vulnerability):
         os.popen(f"{_EXEC}ragnarok python3 /yggdrasil/resources/utils/create_template.py --template {template['path']}")
     # TODO: create payloads
     # run script on ragnarok
-    return os.popen(f'{_EXEC}ragnarok nuclei -u {api.target} -t /ragnarok/input/ -o output.api -irr -me').read()
+    output = os.popen(f'{_EXEC}ragnarok nuclei -u {api.target} -t /ragnarok/input/ -o output.api -irr -me output.md').read()
+    # clean up and copy request to ragnarok
+    os.popen(f"{_EXEC}ragnarok rm -rf /ragnarok/input/").read()
+    os.popen(f"{_EXEC}ragnarok mkdir /ragnarok/input").read()
+    return output
 
 
 @app.task

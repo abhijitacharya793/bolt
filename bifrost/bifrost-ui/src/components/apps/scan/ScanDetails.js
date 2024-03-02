@@ -24,20 +24,19 @@ export default function ScanDetails() {
 
   const [scanDetails, setScanDetails] = useState([]);
 
-  const getScanDetails = () => {
-    fetch(`http://valhalla-api:8335/valhalla/v1/enricher/${1}`, {
+  const getScanDetails = (id) => {
+    fetch(`http://valhalla-api:8335/valhalla/v1/enricher/?scan_id=${id}`, {
       method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {
         setScanDetails(data);
-        console.log(data);
       })
       .catch((err) => console.error(err));
   };
 
   useEffect(() => {
-    getScanDetails();
+    getScanDetails(params["id"]);
   }, []);
 
   return (
@@ -115,7 +114,9 @@ export default function ScanDetails() {
                                 <div className="progress-bar">
                                   <div
                                     className="progress"
-                                    style={{ width: `${scanDetails.completion}%` }}
+                                    style={{
+                                      width: `${scanDetails.completion}%`,
+                                    }}
                                   ></div>
                                 </div>
                               </div>
@@ -132,7 +133,7 @@ export default function ScanDetails() {
                     </Tabs>
                   </div>
                   <div className="col-span-2 p-4">
-                    <ScanTimeline />
+                    <ScanTimeline scanDetails={scanDetails} />
                   </div>
                 </div>
               </CardBody>

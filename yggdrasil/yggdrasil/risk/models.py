@@ -12,13 +12,12 @@ class Tag(models.Model):
         return f"{self.name}"
 
 class Fuzzing(models.Model):
-    part = models.CharField(max_length=100, null=True, blank=True)
-    description = models.TextField(max_length=500, null=True, blank=True)
-    remediation = models.TextField(max_length=500, null=True, blank=True)
-    steps_to_reproduce = models.TextField(max_length=500, null=True, blank=True)
+    part = models.CharField(max_length=10, choices=PART, default="q")
+    condition = models.TextField(max_length=1000, null=True, blank=True)
+    required = models.BooleanField()
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.part}"
 
 
 class Risk(models.Model):
