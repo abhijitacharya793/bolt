@@ -1,10 +1,14 @@
+<br>
+<br>
 <p align="center">
   <a href="https://github.com/TROUBLE-1/Vajra/">
-    <img src="readme/bolt.jpg"  width="500" >
+    <img src="https://images.weserv.nl/?url=raw.githubusercontent.com/abhijitacharya793/bolt/7b32d5a8e11e6a85695f3c51ba5e51918b07a826/readme/bolt.jpg?v=4&h=300&w=300&fit=cover&mask=circle&maxage=7d"   >
   </a>
 </p>
 
-# BO⚡LT
+<h1 align="center">
+  BO⚡LT
+</h1>
 
 `shallow-backup` lets you easily create lightweight backups of installed packages, applications, fonts and dotfiles, and automatically push them to a remote Git repository.
 <br>
