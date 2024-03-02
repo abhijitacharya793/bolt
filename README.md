@@ -2,7 +2,7 @@
 <br>
 <p align="center">
   <a href="https://github.com/TROUBLE-1/Vajra/">
-    <img src="https://images.weserv.nl/?url=raw.githubusercontent.com/abhijitacharya793/bolt/7b32d5a8e11e6a85695f3c51ba5e51918b07a826/readme/bolt.jpg?h=300&w=300&fit=cover&mask=circle&maxage=7d"   >
+    <img src="readme/bolt.jpg"   >
   </a>
 </p>
 
@@ -23,7 +23,7 @@
   <a href="#license">License</a>
 </p>
 
-## :mag_right: services
+## 🖥️ services
 
 ### naming convention
 
@@ -37,9 +37,13 @@ https://moesaid.github.io/cleopatra/index-1.html
 https://apexcharts.com/react-chart-demos/bar-charts/reversed-bar-chart/
 https://fontawesome.com/v5/search?q=input&o=r
 
+<details>
+    <summary> Bifrost/Bifrost - UI </summary>
+    
 ### bifrost/bifrost-ui
 
 - central server for all presentation needs
+</details>
 
 ### rune
 
