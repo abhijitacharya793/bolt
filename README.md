@@ -2,7 +2,7 @@
 <br>
 <p align="center">
   <a href="https://github.com/TROUBLE-1/Vajra/">
-    <img src="https://images.weserv.nl/?url=raw.githubusercontent.com/abhijitacharya793/bolt/7b32d5a8e11e6a85695f3c51ba5e51918b07a826/readme/bolt.jpg?v=4&h=300&w=300&fit=cover&mask=circle&maxage=7d"   >
+    <img src="https://images.weserv.nl/?url=raw.githubusercontent.com/abhijitacharya793/bolt/7b32d5a8e11e6a85695f3c51ba5e51918b07a826/readme/bolt.jpg?h=300&w=300&fit=cover&mask=circle&maxage=7d"   >
   </a>
 </p>
 
@@ -10,29 +10,20 @@
   BO⚡LT
 </h1>
 
-`shallow-backup` lets you easily create lightweight backups of installed packages, applications, fonts and dotfiles, and automatically push them to a remote Git repository.
-<br>
+<p align="center">
+<code>shallow-backup</code> lets you easily create lightweight backups of installed packages, applications, fonts and dotfiles, and automatically push them to a remote Git repository.
+</p>
 
-## contents
+<p align="center">
+  <a href="#services">Services</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#download">Download</a> •
+  <a href="#credits">Credits</a> •
+  <a href="#related">Related</a> •
+  <a href="#license">License</a>
+</p>
 
-- [Why?](#why)
-- [Installation](#installation)
-  - [Method 1: <a href="https://pypi.org/project/shallow-backup/" rel="nofollow">pipx</a>](#method-1-pipx)
-  - [Method 2: Install From Source](#method-2-install-from-source)
-- [Dependencies](#dependencies)
-- [Usage](#usage)
-- [Recipes](#recipes)
-  - [Maintain a separate repo for your dotfiles](#maintain-a-separate-repo-for-your-dotfiles)
-  - [Synchronize dotfiles on multiple computers](#synchronize-dotfiles-on-multiple-computers)
-  - [Reinstall dotfiles from a backup](#reinstall-dotfiles-from-a-backup)
-- [What can I back up?](#what-can-i-back-up)
-- [Configuration](#configuration)
-  - [Conditional Backup and Reinstallation](#conditional-backup-and-reinstallation)
-- [Git Integration](#git-integration)
-  - [A Word of Caution](#a-word-of-caution)
-  - [.gitignore](#gitignore)
-- [Output Structure](#output-structure)
-- [Want to Contribute?](#want-to-contribute)
+## :mag_right: services
 
 ### naming convention
 
