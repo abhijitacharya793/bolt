@@ -11,7 +11,7 @@
 </h1>
 
 <p align="center">
-<code>shallow-backup</code> lets you easily create lightweight backups of installed packages, applications, fonts and dotfiles, and automatically push them to a remote Git repository.
+<code>Bolt</code> is a powerful and user-friendly DAST tool designed to scan APIs for vulnerabilities and provide comprehensive reports. Developed with security in mind, Bolt leverages Docker to streamline the setup of isolated containers for efficient testing.
 </p>
 
 <p align="center">
@@ -167,3 +167,6 @@ https://github.com/sf197/nuclei_gpt/tree/main/data/wiki
 docker exec -it ragnarok /bin/bash
 python manage.py loaddata data/vulnerability.json
 docker run -d -p 8080:80 vulnerables/web-dvwa
+echo http://host.docker.internal:8080 | nuclei -headless -t /yggdrasil/resources/nuclei/templates/SXSS/template2.yaml
+nuclei -u testphp.vulnweb.com -t /ragnarok/inputcopy/ -o output.api -irr -me output -rc nuclei_elastic.yml
+nuclei -u testphp.vulnweb.com -t /ragnarok/inputcopy/ -jsonl -o output.json -silent -irr -me export
