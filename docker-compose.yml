@@ -14,7 +14,7 @@ services:
      - POSTGRES_USER=admin
      - POSTGRES_PASSWORD=admin
      - POSTGRES_DB=bolt
-  # ELASTICSEARCH
+  # # ELASTICSEARCH
   # elastic_search:
   #   image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
   #   container_name: elastic_search
@@ -26,7 +26,7 @@ services:
   #   ports:
   #     - "9200:9200"
   #     - "9300:9300"
-  # KIBANA
+  # # KIBANA
   # kibana:
   #   image: docker.elastic.co/kibana/kibana:7.10.0
   #   container_name: kibana
@@ -156,7 +156,6 @@ services:
     # platform: linux/amd64
     build:
       context: ./ragnarok/ragnarok
-    # command: 
     volumes_from:
       - yggdrasil-api:/yggdrasil/resources
     volumes:
@@ -166,20 +165,20 @@ services:
       - DISABLE_NUCLEI_TEMPLATES_PUBLIC_DOWNLOAD=true
     stdin_open: true
     tty: true
-  # # HIEMDALL API
-  # hiemdall-api:
-  #   container_name: 'hiemdall_api'
-  #   build:
-  #     context: ./hiemdall/hiemdall
-  #   command: python manage.py runserver 0.0.0.0:8338
-  #   volumes:
-  #     - ./hiemdall/hiemdall:/hiemdall/
-  #   ports:
-  #     - "8336:8336"
-  #   environment:
-  #     - DEBUG=1
-  #     - IMAGE_NAME=hiemdall_api
-  #   depends_on:
-  #     - redis
+  # HIEMDALL API
+  hiemdall-api:
+    container_name: 'hiemdall_api'
+    build:
+      context: ./hiemdall/hiemdall
+    command: python manage.py runserver 0.0.0.0:8338
+    volumes:
+      - ./hiemdall/hiemdall:/hiemdall/
+    ports:
+      - "8338:8338"
+    environment:
+      - DEBUG=1
+      - IMAGE_NAME=hiemdall_api
+    depends_on:
+      - redis
 volumes:
   bolt_data:

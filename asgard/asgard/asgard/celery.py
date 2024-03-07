@@ -1,8 +1,9 @@
 import json
 import os, requests
+from random import randrange
 from celery import Celery
 
-# constanta
+# constants
 _EXEC = "docker exec "
 _CP = "docker cp "
 
@@ -25,6 +26,7 @@ def get_all_queued_tasks():
     return json.loads(requests.get("http://valhalla-api:8335/valhalla/v1/enricher?triggered=False").text)
 
 
+# MARK TASK TRIGGERED
 def mark_task_triggered(task):
     task['triggered'] = True
     return json.loads(requests.put(f"http://valhalla-api:8335/valhalla/v1/enricher/{task['id']}/", data=task).text)
@@ -77,29 +79,54 @@ def get_template(vulnerability_id):
         f"http://yggdrasil-api:8337/yggdrasil/v1/risk/template/?vulnerability_id={vulnerability_id}").text)
 
 
+# ADD RESULT TO HIEMDALL
+def add_result():
+    pass
+
+
+# RUN COMMAND
 def run_command(api, vulnerability):
     # save request to file
     with open("request.api", 'w') as req_file:
         req_file.write(api.__str__())
     os.popen(f"{_CP}/asgard/request.api ragnarok:/ragnarok/request.api")
     # TODO: create nuclei template
-
     templates = get_template(vulnerability)
 
     for template in templates:
-        print(template['vulnerability'])
         os.popen(f"{_EXEC}ragnarok python3 /yggdrasil/resources/utils/create_template.py --template {template['path']}")
     # TODO: create payloads
     # get command
     command = get_vulnerability(vulnerability)['command']
     command = command.replace("{{TARGET}}",api.target)
     # run script on ragnarok
-    # output = os.popen(f'{_EXEC}ragnarok nuclei -u {api.target} -t /ragnarok/input/ -o output.api -irr -me output.md').read()
-    output = os.popen(f'{_EXEC}ragnarok {command}').read()
+    output_str = os.popen(f'{_EXEC}ragnarok {command}').read()
+    # parse output
+    if output_str!=None and output_str!='':
+        output = json.loads(output_str)
+        print("####################################################")
+        print(output['template-id'])
+        print(output['host'])
+        print(output['url'])
+        print(output['matched-at'])
+        print(output['meta']['payloadStr'])
+        print(output['curl-command'])
+        print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+
+        # TODO: get output of each task and send it to hiemdall (hiemdall will update it to bifrost)
+        a=1
+    else:
+        print("####################################################")
+        print("NO FINDINGS!!!")
+        print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+    
+    
+
     # clean up and copy request to ragnarok
     os.popen(f"{_EXEC}ragnarok rm -rf /ragnarok/input/").read()
+    os.popen(f"{_EXEC}ragnarok rm -rf /ragnarok/export/").read()
     os.popen(f"{_EXEC}ragnarok mkdir /ragnarok/input").read()
-    return output
+    os.popen(f"{_EXEC}ragnarok mkdir /ragnarok/export").read()
 
 
 @app.task
@@ -115,9 +142,7 @@ def trigger_task():
         if task['tasks']:
             # for each task corresponding to an API
             for vulnerability_id in task['tasks'].split(","):
-                output = run_command(api, vulnerability_id)
-                # TODO: get output of each task and send it to hiemdall (hiemdall will update it to bifrost)
-                print(output)
+                run_command(api, vulnerability_id)
             mark_task_triggered(task)
         # break out of the loop
         break
