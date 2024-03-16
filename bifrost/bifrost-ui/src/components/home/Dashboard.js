@@ -51,7 +51,7 @@ export default function Home() {
         <div className="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-5">
           <StatisticsCard
             icon={<ListBulletIcon className="h-6 w-6" />}
-            entry="Total Scans"
+            entry="Total APIs"
             entry_value={scans.length}
             change="-"
             change_value="55%"

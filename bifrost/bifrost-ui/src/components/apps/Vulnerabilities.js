@@ -11,6 +11,7 @@ import {
   TabsHeader,
   Tab,
   Chip,
+  Button,
 } from "@material-tailwind/react";
 import {
   ExclamationTriangleIcon,
@@ -19,11 +20,15 @@ import {
   NoSymbolIcon,
   FlagIcon,
 } from "@heroicons/react/24/solid";
+import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import prism from "react-syntax-highlighter/dist/esm/styles/prism/prism";
+import { useNavigate } from "react-router-dom";
 
 export default function Vulnerabilities() {
   const [vulnerabilities, setVulnerabilities] = useState([]);
   const [risks, setRisks] = useState([]);
   const [tags, setTags] = useState([]);
+  const [results, setResults] = useState([]);
 
   const [data, setData] = useState([]);
 
@@ -34,7 +39,19 @@ export default function Vulnerabilities() {
       .then((res) => res.json())
       .then((data) => {
         setVulnerabilities(data);
+        console.log(data);
+      })
+      .catch((err) => console.error(err));
+  };
+  const getResults = () => {
+    fetch("http://hiemdall-api:8338/hiemdall/v1/result/", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setResults(data);
         setData(data);
+        console.log(data);
       })
       .catch((err) => console.error(err));
   };
@@ -57,25 +74,33 @@ export default function Vulnerabilities() {
 
   useEffect(() => {
     getVulnerabilities();
+    getResults();
     getRisks();
     getTags();
   }, []);
 
   const handleFilter = (severity) => {
     if (severity === "a") {
-      setData(vulnerabilities);
+      setData(results);
     } else {
       setData(
-        vulnerabilities.filter(function (vul) {
-          return vul.severity === severity;
+        results.filter(function (res) {
+          return (
+            vulnerabilities[res.vulnerability_id - 1].severity === severity
+          );
         })
       );
     }
   };
 
+  let navigate = useNavigate();
+  const navigateToVulnerabilityDetails = (e) => {
+    navigate(`/vulnerabilities/vulnerabilitydetails/${e.target.name}`);
+  };
+
   return (
     <>
-      <div className="relative mt-8 h-36 w-full overflow-hidden rounded-xl bg-cover bg-center">
+      <div className="relative mt-8 h-20 w-full overflow-hidden rounded-xl bg-cover bg-center">
         <div className="absolute inset-0 h-full w-full bg-indigo-100" />
       </div>
 
@@ -94,7 +119,7 @@ export default function Vulnerabilities() {
                   variant="small"
                   className="font-normal text-blue-gray-600"
                 >
-                  Get a list of all
+                  Get a list of all vulnerabilities detected by Bolt
                 </Typography>
               </div>
             </div>
@@ -170,152 +195,169 @@ export default function Vulnerabilities() {
                 <table className="w-full min-w-[640px] table-auto">
                   <thead>
                     <tr>
-                      {["vulnerability", "severity", "power", "tag", ""].map(
-                        (el) => (
-                          <th
-                            key={el}
-                            className="border-b border-blue-gray-50 py-3 px-5 text-left"
+                      {[
+                        "scan id",
+                        "vulnerability",
+                        "severity",
+                        "payload string",
+                        "tag",
+                        "",
+                      ].map((el) => (
+                        <th
+                          key={el}
+                          className="border-b border-blue-gray-50 py-3 px-5 text-left"
+                        >
+                          <Typography
+                            variant="small"
+                            className="text-[11px] font-bold uppercase text-blue-gray-400"
                           >
-                            <Typography
-                              variant="small"
-                              className="text-[11px] font-bold uppercase text-blue-gray-400"
-                            >
-                              {el}
-                            </Typography>
-                          </th>
-                        )
-                      )}
+                            {el}
+                          </Typography>
+                        </th>
+                      ))}
                     </tr>
                   </thead>
                   <tbody>
                     {data.map(
-                      ({ id, name, power, risk, severity, tag }, key) => {
-                        const className = `py-3 px-5 ${
-                          key === data.length - 1
-                            ? ""
-                            : "border-b border-blue-gray-50"
-                        }`;
+                      (
+                        {
+                          id,
+                          curl_command,
+                          matched_at,
+                          payload_str,
+                          scan_id,
+                          template_id,
+                          uuid,
+                          vulnerability_id,
+                        },
+                        key
+                      ) => {
+                        if (vulnerabilities.length > 0) {
+                          const name =
+                            vulnerabilities[vulnerability_id - 1]["name"];
+                          const power =
+                            vulnerabilities[vulnerability_id - 1]["power"];
+                          const risk =
+                            vulnerabilities[vulnerability_id - 1]["risk"];
+                          const severity =
+                            vulnerabilities[vulnerability_id - 1]["severity"];
+                          const tag =
+                            vulnerabilities[vulnerability_id - 1]["tag"];
 
-                        return (
-                          <tr key={name}>
-                            <td className={className}>
-                              <div className="flex items-center gap-4">
-                                <ExclamationCircleIcon
-                                  className={`h-8 w-8 ${
-                                    severity === "c"
-                                      ? "text-red-300"
-                                      : severity === "h"
-                                      ? "text-orange-300"
-                                      : severity === "m"
-                                      ? "text-yellow-300"
-                                      : severity === "l"
-                                      ? "text-green-300"
-                                      : "text-gray-900"
-                                  } `}
-                                />
-                                <div>
-                                  <Typography
-                                    variant="small"
-                                    color="blue-gray"
-                                    className="font-semibold"
-                                  >
-                                    {name}
-                                  </Typography>
-                                  <Typography className="text-xs font-normal text-blue-gray-500">
-                                    {
-                                      risks.filter(function (rk) {
-                                        return rk.id === risk;
-                                      })[0]["name"]
-                                    }
-                                  </Typography>
+                          const className = `py-3 px-5 ${
+                            key === results.length - 1
+                              ? ""
+                              : "border-b border-blue-gray-50"
+                          }`;
+
+                          return (
+                            <tr key={key}>
+                              <td className={className}>
+                                <div className="flex items-center gap-4">
+                                  {scan_id}
                                 </div>
-                              </div>
-                            </td>
-                            <td className={className}>
-                              <Chip
-                                variant="gradient"
-                                color={
-                                  severity === "c"
-                                    ? "red"
-                                    : severity === "h"
-                                    ? "orange"
-                                    : severity === "m"
-                                    ? "yellow"
-                                    : severity === "l"
-                                    ? "green"
-                                    : "gray"
-                                }
-                                value={
-                                  severity === "c"
-                                    ? "critical"
-                                    : severity === "h"
-                                    ? "high"
-                                    : severity === "m"
-                                    ? "medium"
-                                    : severity === "l"
-                                    ? "low"
-                                    : "info"
-                                }
-                                className="py-0.5 px-2 text-[11px] font-medium w-fit"
-                              />
-                            </td>
-                            <td className={className}>
-                              <Typography className="text-xs font-semibold text-blue-gray-600">
-                                {(power === 1 && (
-                                  <Chip
-                                    key={tag.id}
-                                    variant="gradient"
-                                    color="green"
-                                    value="low"
-                                    className="py-0.5 px-2 m-1 text-[11px] font-medium w-fit"
+                              </td>
+                              <td className={className}>
+                                <div className="flex items-center gap-4">
+                                  <ExclamationCircleIcon
+                                    className={`h-8 w-8 ${
+                                      severity === "c"
+                                        ? "text-red-300"
+                                        : severity === "h"
+                                        ? "text-orange-300"
+                                        : severity === "m"
+                                        ? "text-yellow-300"
+                                        : severity === "l"
+                                        ? "text-green-300"
+                                        : "text-gray-900"
+                                    } `}
                                   />
-                                )) ||
-                                  (power === 2 && (
+                                  <div>
+                                    <Typography
+                                      variant="small"
+                                      color="blue-gray"
+                                      className="font-semibold"
+                                    >
+                                      {name}
+                                    </Typography>
+                                    <Typography className="text-xs font-normal text-blue-gray-500">
+                                      {
+                                        risks.filter(function (rk) {
+                                          return rk.id === risk;
+                                        })[0]["name"]
+                                      }
+                                    </Typography>
+                                  </div>
+                                </div>
+                              </td>
+                              <td className={className}>
+                                <Chip
+                                  variant="gradient"
+                                  color={
+                                    severity === "c"
+                                      ? "red"
+                                      : severity === "h"
+                                      ? "orange"
+                                      : severity === "m"
+                                      ? "yellow"
+                                      : severity === "l"
+                                      ? "green"
+                                      : "gray"
+                                  }
+                                  value={
+                                    severity === "c"
+                                      ? "critical"
+                                      : severity === "h"
+                                      ? "high"
+                                      : severity === "m"
+                                      ? "medium"
+                                      : severity === "l"
+                                      ? "low"
+                                      : "info"
+                                  }
+                                  className="py-0.5 px-2 text-[11px] font-medium w-fit"
+                                />
+                              </td>
+                              {/*  */}
+                              <td className={className}>
+                                <Typography className="text-xs">
+                                  <SyntaxHighlighter
+                                    language="html"
+                                    style={prism}
+                                  >
+                                    {payload_str}
+                                  </SyntaxHighlighter>
+                                </Typography>
+                              </td>
+                              {/*  */}
+                              <td className={className}>
+                                {tags
+                                  .filter(function (tg) {
+                                    return tag.includes(tg.id);
+                                  })
+                                  .map((tag) => (
                                     <Chip
                                       key={tag.id}
                                       variant="gradient"
-                                      color="yellow"
-                                      value="medium"
-                                      className="py-0.5 px-2 m-1 text-[11px] font-medium w-fit"
-                                    />
-                                  )) ||
-                                  (power === 3 && (
-                                    <Chip
-                                      key={tag.id}
-                                      variant="gradient"
-                                      color="orange"
-                                      value="high"
+                                      color="blue"
+                                      value={tag.name}
                                       className="py-0.5 px-2 m-1 text-[11px] font-medium w-fit"
                                     />
                                   ))}
-                              </Typography>
-                            </td>
-                            <td className={className}>
-                              {tags
-                                .filter(function (tg) {
-                                  return tag.includes(tg.id);
-                                })
-                                .map((tag) => (
-                                  <Chip
-                                    key={tag.id}
-                                    variant="gradient"
-                                    color="blue"
-                                    value={tag.name}
-                                    className="py-0.5 px-2 m-1 text-[11px] font-medium w-fit"
-                                  />
-                                ))}
-                            </td>
-                            <td className={className}>
-                              <Typography
-                                as="a"
-                                href={`/vulnerabilities/vulnerabilitydetails/${id}`}
-                                className="text-xs font-semibold text-blue-gray-600"
-                              >
-                                Edit
-                              </Typography>
-                            </td>
-                          </tr>
-                        );
+                              </td>
+                              <td className={className}>
+                                <Button
+                                  name={id}
+                                  // href={`/vulnerabilities/vulnerabilitydetails/${id}`}
+                                  onClick={navigateToVulnerabilityDetails}
+                                  color="black"
+                                >
+                                  details
+                                </Button>
+                              </td>
+                            </tr>
+                          );
+                        }
                       }
                     )}
                   </tbody>

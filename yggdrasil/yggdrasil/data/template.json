@@ -3,8 +3,104 @@
     "model": "risk.template",
     "pk": 1,
     "fields": {
+      "vulnerability": 1,
+      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
+    }
+  },
+  {
+    "model": "risk.template",
+    "pk": 2,
+    "fields": {
+      "vulnerability": 2,
+      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
+    }
+  },
+  {
+    "model": "risk.template",
+    "pk": 3,
+    "fields": {
+      "vulnerability": 3,
+      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
+    }
+  },
+  {
+    "model": "risk.template",
+    "pk": 4,
+    "fields": {
+      "vulnerability": 4,
+      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
+    }
+  },
+  {
+    "model": "risk.template",
+    "pk": 5,
+    "fields": {
+      "vulnerability": 5,
+      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
+    }
+  },
+  {
+    "model": "risk.template",
+    "pk": 6,
+    "fields": {
+      "vulnerability": 6,
+      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
+    }
+  },
+  {
+    "model": "risk.template",
+    "pk": 7,
+    "fields": {
+      "vulnerability": 7,
+      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
+    }
+  },
+  {
+    "model": "risk.template",
+    "pk": 8,
+    "fields": {
+      "vulnerability": 8,
+      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
+    }
+  },
+  {
+    "model": "risk.template",
+    "pk": 9,
+    "fields": {
+      "vulnerability": 9,
+      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
+    }
+  },
+  {
+    "model": "risk.template",
+    "pk": 10,
+    "fields": {
+      "vulnerability": 10,
+      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
+    }
+  },
+  {
+    "model": "risk.template",
+    "pk": 11,
+    "fields": {
+      "vulnerability": 11,
+      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
+    }
+  },
+  {
+    "model": "risk.template",
+    "pk": 12,
+    "fields": {
       "vulnerability": 12,
       "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
+    }
+  },
+  {
+    "model": "risk.template",
+    "pk": 13,
+    "fields": {
+      "vulnerability": 12,
+      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template3.yaml"
     }
   }
 ]

@@ -83,7 +83,7 @@ export default function Secrets() {
     ];
     return (
         <>
-            <div className="relative mt-8 h-36 w-full overflow-hidden rounded-xl bg-cover bg-center">
+            <div className="relative mt-8 h-20 w-full overflow-hidden rounded-xl bg-cover bg-center">
                 <div className="absolute inset-0 h-full w-full bg-yellow-100" />
             </div>
 

@@ -80,12 +80,12 @@ def get_template(vulnerability_id):
 
 
 # ADD RESULT TO HIEMDALL
-def add_result():
-    pass
-
+def add_result(scan_id, uuid, template_id, payloadStr, matched_at, curl_command, vulnerability):
+    data = {"scan_id":scan_id, "uuid":uuid, "template_id":template_id, "payload_str":payloadStr, "matched_at":matched_at, "curl_command":curl_command, "vulnerability_id":vulnerability}
+    return json.loads(requests.post(f"http://hiemdall-api:8338/hiemdall/v1/result/", data=data).text)
 
 # RUN COMMAND
-def run_command(api, vulnerability):
+def run_command(api, vulnerability, scan_id):
     # save request to file
     with open("request.api", 'w') as req_file:
         req_file.write(api.__str__())
@@ -103,25 +103,28 @@ def run_command(api, vulnerability):
     output_str = os.popen(f'{_EXEC}ragnarok {command}').read()
     # parse output
     if output_str!=None and output_str!='':
-        output = json.loads(output_str)
-        print("####################################################")
-        print(output['template-id'])
-        print(output['host'])
-        print(output['url'])
-        print(output['matched-at'])
-        print(output['meta']['payloadStr'])
-        print(output['curl-command'])
-        print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        output_str_split = output_str.replace("}\n{", "}<#$>{").split("<#$>")
+        for output in output_str_split:
+            with open('abc.txt','w') as f:
+                f.write(output)
+            output = json.loads(output)
+            print("####################################################")
+            print(output['template-id'])
+            print(output['host'])
+            print(output['url'])
+            print(output['matched-at'])
+            print(output['meta']['payloadStr'])
+            print(output['curl-command'])
+            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
 
-        # TODO: get output of each task and send it to hiemdall (hiemdall will update it to bifrost)
-        a=1
+            # TODO: get output of each task and send it to hiemdall (hiemdall will update it to bifrost)
+            print(add_result(scan_id, api.uuid, output['template-id'], output['meta']['payloadStr'], output['matched-at'], output['curl-command'], vulnerability))
+        
     else:
         print("####################################################")
         print("NO FINDINGS!!!")
         print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
     
-    
-
     # clean up and copy request to ragnarok
     os.popen(f"{_EXEC}ragnarok rm -rf /ragnarok/input/").read()
     os.popen(f"{_EXEC}ragnarok rm -rf /ragnarok/export/").read()
@@ -142,7 +145,7 @@ def trigger_task():
         if task['tasks']:
             # for each task corresponding to an API
             for vulnerability_id in task['tasks'].split(","):
-                run_command(api, vulnerability_id)
+                run_command(api, vulnerability_id, task['scan_id'])
             mark_task_triggered(task)
         # break out of the loop
         break

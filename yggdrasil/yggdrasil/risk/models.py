@@ -25,7 +25,6 @@ class Risk(models.Model):
     abbreviation = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(max_length=500, null=True, blank=True)
     remediation = models.TextField(max_length=500, null=True, blank=True)
-    steps_to_reproduce = models.TextField(max_length=500, null=True, blank=True)
 
     def __str__(self):
         return f"{self.name}"
@@ -35,6 +34,7 @@ class Vulnerability(models.Model):
     risk = models.ForeignKey(Risk, on_delete=models.CASCADE)
     command = models.CharField(max_length=1000, null=True, blank=True)
     severity = models.CharField(max_length=10, choices=SEVERITY, default="i")
+    steps_to_reproduce = models.TextField(max_length=500, null=True, blank=True)
     power = models.IntegerField(choices=POWER)
     tag = models.ManyToManyField(Tag, blank=True)
     fuzzing_rules = models.ManyToManyField(Fuzzing, blank=True)

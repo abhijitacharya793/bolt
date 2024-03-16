@@ -6,8 +6,7 @@
       "name": "Broken Authentication",
       "abbreviation": "Authn",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -17,8 +16,7 @@
       "name": "Broken Access Control",
       "abbreviation": "Authz",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -28,8 +26,7 @@
       "name": "Cryptographic Failures",
       "abbreviation": "CF",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -39,8 +36,7 @@
       "name": "Server Side Request Forgery",
       "abbreviation": "SSRF",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -50,8 +46,7 @@
       "name": "SQL injection",
       "abbreviation": "SQLi",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -61,8 +56,7 @@
       "name": "Cross Site Scripting",
       "abbreviation": "XSS",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -72,8 +66,7 @@
       "name": "XML External Entity",
       "abbreviation": "XXE",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -83,8 +76,7 @@
       "name": "Local File Inclusion",
       "abbreviation": "LFI",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -94,8 +86,7 @@
       "name": "Remote File Inclusion",
       "abbreviation": "RFI",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -105,8 +96,7 @@
       "name": "Remote Code Execution",
       "abbreviation": "RCE",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -116,8 +106,7 @@
       "name": "HTTP Parameter Pollution",
       "abbreviation": "HPP",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -127,8 +116,7 @@
       "name": "File Upload",
       "abbreviation": "File",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -138,8 +126,7 @@
       "name": "Session Misconfigurations",
       "abbreviation": "config",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -149,8 +136,7 @@
       "name": "Application Misconfigurations",
       "abbreviation": "config",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -160,8 +146,7 @@
       "name": "Insecure Deserialization",
       "abbreviation": "ID",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -171,8 +156,7 @@
       "name": "Open Redirect",
       "abbreviation": "OR",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   },
   {
@@ -182,8 +166,7 @@
       "name": "Reconnaissance",
       "abbreviation": "recon",
       "description": "",
-      "remediation": "",
-      "steps_to_reproduce": ""
+      "remediation": ""
     }
   }
 ]

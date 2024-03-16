@@ -70,7 +70,7 @@ export default function Asgard() {
 
   return (
     <>
-      <div className="relative mt-8 h-36 w-full overflow-hidden rounded-xl bg-cover bg-center">
+      <div className="relative mt-8 h-20 w-full overflow-hidden rounded-xl bg-cover bg-center">
         <div className="absolute inset-0 h-full w-full bg-red-100" />
       </div>
 
@@ -137,8 +137,10 @@ export default function Asgard() {
                       >
                         <div className="flex items-center w-full text-base font-sans font-semibold leading-relaxed">
                           <span className="w-full flex ">
-                            {burpExport[scan_id - 1]["name"]} &nbsp;|&nbsp; this
-                            scan has&nbsp;
+                            {burpExport &&
+                              burpExport[scan_id - 1] &&
+                              burpExport[scan_id - 1]["name"]}
+                            &nbsp;|&nbsp; this scan has&nbsp;
                             <p
                               className={` ${
                                 toggle[index] === 1

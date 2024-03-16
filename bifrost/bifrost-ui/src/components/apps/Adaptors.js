@@ -24,7 +24,7 @@ import Manual from "./adaptor/Manual";
 export default function Inputs() {
   return (
     <>
-      <div className="relative mt-8 h-36 w-full overflow-hidden rounded-xl bg-cover bg-center">
+      <div className="relative mt-8 h-20 w-full overflow-hidden rounded-xl bg-cover bg-center">
         <div className="absolute inset-0 h-full w-full bg-orange-100" />
       </div>
       <Card className="mx-3 -mt-16 mb-6 lg:mx-4 border border-blue-gray-100">

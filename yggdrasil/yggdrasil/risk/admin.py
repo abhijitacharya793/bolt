@@ -10,11 +10,11 @@ class FuzzingAdmin(admin.ModelAdmin):
     list_display = ["part", "condition", "required"]
 
 class RiskAdmin(admin.ModelAdmin):
-    list_display = ["id", "name", "abbreviation"]
+    list_display = ["id", "name", "abbreviation", "description", "remediation"]
 
 
 class VulnerabilityAdmin(admin.ModelAdmin):
-    list_display = ["id", "name", "risk", "command", "severity", "power"]
+    list_display = ["id", "name", "risk", "command", "steps_to_reproduce", "severity", "power"]
 
 
 class TemplateAdmin(admin.ModelAdmin):
