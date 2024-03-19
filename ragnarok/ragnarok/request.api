@@ -1,9 +1,9 @@
-GET /listproducts.php?cat=1?cat=1& HTTP/1.1
+GET /comment.php?aid=1?aid=1& HTTP/1.1
 Host: testphp.vulnweb.com
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
 Accept-Encoding: gzip, deflate, br
 Connection: close
-Referer: http://testphp.vulnweb.com/categories.php
+Referer: http://testphp.vulnweb.com/artists.php
 Cookie: login=test%2Ftest

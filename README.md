@@ -164,9 +164,14 @@ https://fontawesome.com/v5/search?q=input&o=r
 
 https://github.com/sf197/nuclei_gpt/tree/main/data/wiki
 
-docker exec -it ragnarok /bin/bash
-python manage.py loaddata data/vulnerability.json
-docker run -d -p 8080:80 vulnerables/web-dvwa
-echo http://host.docker.internal:8080 | nuclei -headless -t /yggdrasil/resources/nuclei/templates/SXSS/template2.yaml
-nuclei -u testphp.vulnweb.com -t /ragnarok/inputcopy/ -o output.api -irr -me output -rc nuclei_elastic.yml
-nuclei -u testphp.vulnweb.com -t /ragnarok/inputcopy/ -jsonl -o output.json -silent -irr -me export
+`docker exec -it ragnarok /bin/bash`
+
+`python manage.py loaddata data/vulnerability.json`
+
+`docker run -d -p 8080:80 vulnerables/web-dvwa`
+
+`echo http://host.docker.internal:8080 | nuclei -headless -t /yggdrasil/resources/nuclei/templates/SXSS/template2.yaml`
+
+`nuclei -u testphp.vulnweb.com -t /ragnarok/inputcopy/ -o output.api -irr -me output -rc nuclei_elastic.yml`
+
+`nuclei -u testphp.vulnweb.com -t /ragnarok/inputcopy/ -jsonl -o output.json -silent -irr -me export`

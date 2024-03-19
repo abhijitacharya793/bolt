@@ -84,7 +84,7 @@
     "pk": 11,
     "fields": {
       "vulnerability": 11,
-      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
+      "path": "/yggdrasil/resources/nuclei/templates/SQLi/template1.yaml"
     }
   },
   {

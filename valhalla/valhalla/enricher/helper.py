@@ -43,6 +43,9 @@ def get_api_details(uuid):
 def get_risk_details():
     return json.loads(requests.get(f"http://yggdrasil-api:8337/yggdrasil/v1/risk/vulnerability/").text)
 
+def get_fuzzing_details():
+    return json.loads(requests.get(f"http://yggdrasil-api:8337/yggdrasil/v1/risk/fuzzing/").text)
+
 
 def fuzzy_risk(api, risks):
     print("&&&& target", api.target)
@@ -57,8 +60,11 @@ def fuzzy_risk(api, risks):
     print("&&&& header", api.header_object)
     print("&&&& query", api.query_object)
     # TODO: Make these vulnerability checks configurable at yggdrasil
+    conditions = get_fuzzing_details()
+    for condition in conditions:
+        print(condition['condition'])
 
-    return "12"
+    return "11"
 
 
 def enrich_api(api, risks):

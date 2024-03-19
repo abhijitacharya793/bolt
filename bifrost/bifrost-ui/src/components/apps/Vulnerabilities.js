@@ -200,7 +200,7 @@ export default function Vulnerabilities() {
                         "vulnerability",
                         "severity",
                         "payload string",
-                        "tag",
+                        "link",
                         "",
                       ].map((el) => (
                         <th
@@ -330,20 +330,19 @@ export default function Vulnerabilities() {
                                 </Typography>
                               </td>
                               {/*  */}
-                              <td className={className}>
-                                {tags
-                                  .filter(function (tg) {
-                                    return tag.includes(tg.id);
-                                  })
-                                  .map((tag) => (
-                                    <Chip
-                                      key={tag.id}
-                                      variant="gradient"
-                                      color="blue"
-                                      value={tag.name}
-                                      className="py-0.5 px-2 m-1 text-[11px] font-medium w-fit"
-                                    />
-                                  ))}
+                              <td className={className+" w-1/4"}>
+                                <Typography
+                                  color="blue"
+                                  className="whitespace-pre-wrap bg-gray-200 py-2 px-4 rounded-md"
+                                >
+                                  <a
+                                    href={matched_at}
+                                    className="text-blue-500 hover:text-blue-700 text-sm underline font-mono"
+                                    target="_blank"
+                                  >
+                                    {matched_at}
+                                  </a>
+                                </Typography>
                               </td>
                               <td className={className}>
                                 <Button
