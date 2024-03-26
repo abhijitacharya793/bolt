@@ -51,7 +51,8 @@ class API:
 
     def __str__(self):
         api_string = f"{self.method} {self.path}?"
-        # ADD QUERY PARAM
+        # TODO: ADD QUERY PARAM
+        # print(self.query_object)
         for query_param in self.query_object:
             api_string += f"{query_param['name']}={query_param['value']}&"
         api_string += f" {self.protocol_version}\n"
@@ -98,11 +99,12 @@ def run_command(api, vulnerability, scan_id):
     # TODO: create payloads
     # get command
     command = get_vulnerability(vulnerability)['command']
-    command = command.replace("{{TARGET}}",api.target)
+    command = command.replace("{{TARGET}}",api.domain)
     # run script on ragnarok
     output_str = os.popen(f'{_EXEC}ragnarok {command}').read()
     # parse output
     if output_str!=None and output_str!='':
+        # TODO: GET BETTER APPROACH
         output_str_split = output_str.replace("}\n{", "}<#$>{").split("<#$>")
         for output in output_str_split:
             with open('abc.txt','w') as f:

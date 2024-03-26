@@ -2,6 +2,6 @@
   {
     "model": "risk.fuzzing",
     "pk": 1,
-    "fields": { "part": "h", "condition": "abc", "required": true }
+    "fields": { "part": "h", "condition": "True", "required": true }
   }
 ]

@@ -63,6 +63,7 @@ def fuzzy_risk(api, risks):
     conditions = get_fuzzing_details()
     for condition in conditions:
         print(condition['condition'])
+        exec(condition['condition'])
 
     return "11"
 

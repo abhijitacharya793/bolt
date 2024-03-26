@@ -17,7 +17,7 @@ class Enricher(models.Model):
     triggered = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.name}: {self.power}"
+        return f"{self.scan_id}: {self.power}"
 
     def save(self, *args, **kwargs):
         api = get_api_details(self.uuid)

@@ -19,7 +19,7 @@ def parse_xml(xml_file):
         port = item.find('port').text
         protocol = item.find('protocol').text
         method = item.find('method').text
-        path = item.find('path').text
+        path = item.find('path').text.split("?")[0]
         extension = item.find('extension').text
         response_length = item.find('responselength').text
 

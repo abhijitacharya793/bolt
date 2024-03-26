@@ -42,7 +42,8 @@ def get_query_params(request, part):
     if query_base_string is not None and len(query_base_string) > 3:
         query_base_string = query_base_string.split("&") if "&" in query_base_string else [query_base_string]
         for query in query_base_string:
-            query_param_list.append(query.split("=")[1] if part == "value" else query.split("=")[0])
+            if query!='':
+                query_param_list.append(query.split("=")[1] if part == "value" else query.split("=")[0])
     return query_param_list
 
 
