@@ -107,8 +107,6 @@ def run_command(api, vulnerability, scan_id):
         # TODO: GET BETTER APPROACH
         output_str_split = output_str.replace("}\n{", "}<#$>{").split("<#$>")
         for output in output_str_split:
-            with open('abc.txt','w') as f:
-                f.write(output)
             output = json.loads(output)
             print("####################################################")
             print(output['template-id'])
