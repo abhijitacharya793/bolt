@@ -2,6 +2,109 @@
   {
     "model": "risk.fuzzing",
     "pk": 1,
-    "fields": { "part": "h", "condition": "True", "required": true }
+    "fields": {
+      "part": "h",
+      "condition": "True if (len(api.header_object)!=0 and (any('Authorization' in obj['name'] for obj in api.header_object) or any('Cookie' in obj['name'] for obj in api.header_object))) else False",
+      "required": true
+    }
+  },
+  {
+    "model": "risk.fuzzing",
+    "pk": 2,
+    "fields": {
+      "part": "h",
+      "condition": "True if (len(api.header_object)!=0 and len(api.query_object)!=0 and (any('Authorization' in obj['name'] for obj in api.header_object) or any('Cookie' in obj['name'] for obj in api.header_object))) else False",
+      "required": true
+    }
+  },
+  {
+    "model": "risk.fuzzing",
+    "pk": 3,
+    "fields": {
+      "part": "h",
+      "condition": "True if (len(api.header_object)!=0 and len(api.query_object)!=0 and (any('Authorization' in obj['name'] for obj in api.header_object) or any('Cookie' in obj['name'] for obj in api.header_object))) else False",
+      "required": true
+    }
+  },
+  {
+    "model": "risk.fuzzing",
+    "pk": 4,
+    "fields": {
+      "part": "h",
+      "condition": "True",
+      "required": true
+    }
+  },
+  {
+    "model": "risk.fuzzing",
+    "pk": 5,
+    "fields": {
+      "part": "h",
+      "condition": "True",
+      "required": true
+    }
+  },
+  {
+    "model": "risk.fuzzing",
+    "pk": 6,
+    "fields": {
+      "part": "h",
+      "condition": "True",
+      "required": true
+    }
+  },
+  {
+    "model": "risk.fuzzing",
+    "pk": 7,
+    "fields": {
+      "part": "h",
+      "condition": "True",
+      "required": true
+    }
+  },
+  {
+    "model": "risk.fuzzing",
+    "pk": 8,
+    "fields": {
+      "part": "h",
+      "condition": "True",
+      "required": true
+    }
+  },
+  {
+    "model": "risk.fuzzing",
+    "pk": 9,
+    "fields": {
+      "part": "h",
+      "condition": "True if (len(api.header_object)!=0 and (any('Authorization' in obj['name'] for obj in api.header_object) or any('Cookie' in obj['name'] for obj in api.header_object))) else False",
+      "required": true
+    }
+  },
+  {
+    "model": "risk.fuzzing",
+    "pk": 10,
+    "fields": {
+      "part": "h",
+      "condition": "True if len(api.query_object)!=0 else False",
+      "required": true
+    }
+  },
+  {
+    "model": "risk.fuzzing",
+    "pk": 11,
+    "fields": {
+      "part": "h",
+      "condition": "True if len(api.query_object)!=0 else False",
+      "required": true
+    }
+  },
+  {
+    "model": "risk.fuzzing",
+    "pk": 12,
+    "fields": {
+      "part": "h",
+      "condition": "True if len(api.query_object)!=0 else False",
+      "required": true
+    }
   }
 ]

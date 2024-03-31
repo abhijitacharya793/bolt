@@ -5,7 +5,7 @@ from .helper import get_api_details, enrich_api, get_risk_details
 # from .helper import parse_xml, parse_api, save_api, enrich_scan
 
 POWER = [(1, "low"), (2, "medium"), (3, "high"), ]
-
+STATUS = [(1, "created"), (2, "running"), (3, "success"), (4, "failed"), ]
 
 class Enricher(models.Model):
     scan_id = models.IntegerField()
@@ -14,7 +14,7 @@ class Enricher(models.Model):
     scope = models.CharField(max_length=500, null=True, blank=True)
     tasks = models.CharField(max_length=1000, null=True, blank=True)
     completion = models.IntegerField(default=0)
-    triggered = models.BooleanField(default=False)
+    status = models.IntegerField(choices=STATUS, default=1)
 
     def __str__(self):
         return f"{self.scan_id}: {self.power}"

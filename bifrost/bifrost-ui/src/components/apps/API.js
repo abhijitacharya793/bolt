@@ -10,7 +10,7 @@ export default function API({
   power,
   completion,
   tasks,
-  triggered,
+  status,
   uuid,
 }) {
   const [api, setAPI] = useState({});
@@ -75,7 +75,11 @@ export default function API({
           }
         />
       </td>
-      <td className={`underline text-blue-300 ${className}`}>{api["path"]}</td>
+      <td className={`underline text-blue-300 ${className}`}>
+        <a target="_blank" href={api["target"]}>
+          {api["path"]}
+        </a>
+      </td>
       <td className={className}>
         <div className="w-10/12">
           <Typography
@@ -94,11 +98,19 @@ export default function API({
       </td>
       <td className={className}>
         <Chip
-          value={(triggered === true && "Y") || (triggered === false && "N")}
+          value={
+            (status === 1 && "Queued") ||
+            (status === 2 && "Running") ||
+            (status === 3 && "Successful") ||
+            (status === 4 && "Failed")
+          }
           className="rounded-full w-fit"
           variant="ghost"
           color={
-            (triggered === true && "green") || (triggered === false && "orange")
+            (status === 1 && "grey") ||
+            (status === 2 && "orange") ||
+            (status === 3 && "green") ||
+            (status === 4 && "red")
           }
         />
       </td>

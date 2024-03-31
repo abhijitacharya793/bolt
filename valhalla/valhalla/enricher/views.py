@@ -9,10 +9,10 @@ class EnricherModelViewSet(ModelViewSet):
     serializer_class = EnricherSerializer
 
     def get_queryset(self):
-        triggered = self.request.query_params.get('triggered')
+        status = self.request.query_params.get('status')
         scan_id = self.request.query_params.get('scan_id')
-        if triggered is not None:
-            queryset = Enricher.objects.filter(triggered=triggered)
+        if status is not None:
+            queryset = Enricher.objects.filter(status=status)
         elif scan_id is not None:
             queryset = Enricher.objects.filter(scan_id=scan_id)
         else:

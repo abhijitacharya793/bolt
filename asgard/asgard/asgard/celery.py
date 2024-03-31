@@ -21,14 +21,18 @@ app.conf.beat_schedule = {
 }
 
 
-# GET QUEUED TASKS
-def get_all_queued_tasks():
-    return json.loads(requests.get("http://valhalla-api:8335/valhalla/v1/enricher?triggered=False").text)
+# GET TASKS BY STATUS
+def get_tasks_status(status):
+    return json.loads(requests.get(f"http://valhalla-api:8335/valhalla/v1/enricher?status={status}").text)
 
+# UPDATE TASK STATUS
+def update_task_status(task, status):
+    task['status'] = status
+    return json.loads(requests.put(f"http://valhalla-api:8335/valhalla/v1/enricher/{task['id']}/", data=task).text)
 
-# MARK TASK TRIGGERED
-def mark_task_triggered(task):
-    task['triggered'] = True
+# UPDATE TASK COMPLETION
+def update_task_completion(task, completion):
+    task['completion'] = completion
     return json.loads(requests.put(f"http://valhalla-api:8335/valhalla/v1/enricher/{task['id']}/", data=task).text)
 
 
@@ -87,6 +91,15 @@ def add_result(scan_id, uuid, template_id, payloadStr, matched_at, curl_command,
 
 # RUN COMMAND
 def run_command(api, vulnerability, scan_id):
+    # get command
+    command = get_vulnerability(vulnerability)['command']
+    if command==None or command=='':
+        print("####################################################")
+        print("NO COMMAND CONFIGURED!!!")
+        print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        return
+    command = command.replace("{{TARGET}}",api.domain)
+    
     # save request to file
     with open("request.api", 'w') as req_file:
         req_file.write(api.__str__())
@@ -97,9 +110,6 @@ def run_command(api, vulnerability, scan_id):
     for template in templates:
         os.popen(f"{_EXEC}ragnarok python3 /yggdrasil/resources/utils/create_template.py --template {template['path']}")
     # TODO: create payloads
-    # get command
-    command = get_vulnerability(vulnerability)['command']
-    command = command.replace("{{TARGET}}",api.domain)
     # run script on ragnarok
     output_str = os.popen(f'{_EXEC}ragnarok {command}').read()
     # parse output
@@ -116,41 +126,53 @@ def run_command(api, vulnerability, scan_id):
             print(output['meta']['payloadStr'])
             print(output['curl-command'])
             print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-
             # TODO: get output of each task and send it to hiemdall (hiemdall will update it to bifrost)
             print(add_result(scan_id, api.uuid, output['template-id'], output['meta']['payloadStr'], output['matched-at'], output['curl-command'], vulnerability))
-        
     else:
         print("####################################################")
         print("NO FINDINGS!!!")
         print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
     
     # clean up and copy request to ragnarok
+    template_count = os.popen(f"{_EXEC}ragnarok ls /ragnarok/input/ | wc -w").read()
     os.popen(f"{_EXEC}ragnarok rm -rf /ragnarok/input/").read()
     os.popen(f"{_EXEC}ragnarok rm -rf /ragnarok/export/").read()
     os.popen(f"{_EXEC}ragnarok mkdir /ragnarok/input").read()
     os.popen(f"{_EXEC}ragnarok mkdir /ragnarok/export").read()
+    print("####################################################")
+    print(f"TEMPLATES CLEANED UP => {template_count}")
+    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
 
 
 @app.task
 def trigger_task():
     # get tasks from valhalla
-    tasks = get_all_queued_tasks()
+    running_tasks = get_tasks_status(2)
+    if len(running_tasks)>0:
+        print("####################################################")
+        print("TASK ALREADY RUNNING!!!")
+        print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        return
+    created_tasks = get_tasks_status(1)
 
     # pick an api and for each vulnerability recommended by valhalla
     #     get script from yggdrasil for the vulnerability and level
     #     trigger a task in docker
-    for task in tasks:
+    for task in created_tasks:
         api = get_api_details(task['uuid'])
         if task['tasks']:
+            task_count = 0
+            task_length = len(task['tasks'].split(","))
             # for each task corresponding to an API
             for vulnerability_id in task['tasks'].split(","):
+                update_task_status(task, 2)
                 run_command(api, vulnerability_id, task['scan_id'])
-            mark_task_triggered(task)
+                # TODO: UPDATE TASK COMPLETION
+                task_count+=1
+                update_task_completion(task, int((task_count*100)/task_length))
+            update_task_status(task, 3)
         # break out of the loop
         break
-
     return
-
 
 app.autodiscover_tasks()

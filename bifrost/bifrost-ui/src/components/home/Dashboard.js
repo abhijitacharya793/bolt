@@ -120,7 +120,7 @@ export default function Home() {
                     strokeWidth={3}
                     className="h-4 w-4 text-green-200"
                   />
-                  <strong>{scans.length} scans</strong> triggered
+                  <strong>{scans.length} scans</strong> status
                 </Typography>
               </div>
               <Menu placement="left-start">

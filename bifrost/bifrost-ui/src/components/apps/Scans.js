@@ -178,7 +178,7 @@ export default function Asgard() {
                                 "method",
                                 "api",
                                 "completion",
-                                "triggered",
+                                "status",
                                 "",
                               ].map((el) => (
                                 <th
@@ -205,7 +205,7 @@ export default function Asgard() {
                                   power,
                                   completion,
                                   tasks,
-                                  triggered,
+                                  status,
                                   uuid,
                                 },
                                 key
@@ -224,7 +224,7 @@ export default function Asgard() {
                                     power={power}
                                     completion={completion}
                                     tzsks={tasks}
-                                    triggered={triggered}
+                                    status={status}
                                     uuid={uuid}
                                   />
                                 );
