@@ -39,6 +39,14 @@ export default function ScanDetails() {
     getScanDetails(params["id"]);
   }, []);
 
+  const calculateCompletition = () => {
+    let total = 0;
+    for (let obj of scanDetails) {
+      total += obj["completion"];
+    }
+    return total / scanDetails.length;
+  };
+
   return (
     <>
       <div className="relative mt-8 h-20 w-full overflow-hidden rounded-xl bg-cover bg-center">
@@ -83,7 +91,7 @@ export default function ScanDetails() {
                       </TabsHeader>
                       <TabsBody>
                         <TabPanel value="status">
-                          {(scanDetails.completion !== 100 && (
+                          {(calculateCompletition() !== 100 && (
                             <div className="h-96 px-8">
                               <div className="flex items-center justify-center pt-32 pb-10">
                                 <svg
@@ -115,7 +123,7 @@ export default function ScanDetails() {
                                   <div
                                     className="progress"
                                     style={{
-                                      width: `${scanDetails.completion}%`,
+                                      width: `${calculateCompletition()}%`,
                                     }}
                                   ></div>
                                 </div>

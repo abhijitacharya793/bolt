@@ -94,13 +94,5 @@
       "vulnerability": 12,
       "path": "/yggdrasil/resources/nuclei/templates/SXSS/template1.yaml"
     }
-  },
-  {
-    "model": "risk.template",
-    "pk": 13,
-    "fields": {
-      "vulnerability": 12,
-      "path": "/yggdrasil/resources/nuclei/templates/SXSS/template3.yaml"
-    }
   }
 ]

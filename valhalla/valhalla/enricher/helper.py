@@ -47,7 +47,7 @@ def get_fuzzing_details(id):
     return json.loads(requests.get(f"http://yggdrasil-api:8337/yggdrasil/v1/risk/fuzzing/{id}").text)
 
 
-def fuzzy_risk(api, risks):
+def boolean_risk(api, risks):
     print("&&&& target", api.target)
     print("&&&& root domain", api.root_domain)
     print("&&&& domain", api.domain)
@@ -65,7 +65,7 @@ def fuzzy_risk(api, risks):
     vulnerabilities = get_risk_details()
     for vulnerability in vulnerabilities:
         if len(vulnerability['fuzzing_rules']) > 0:
-            print(vulnerability['fuzzing_rules'])
+            # print(vulnerability['fuzzing_rules'])
             variables={}
             for fuzzing_rule in vulnerability['fuzzing_rules']:
                 fuzzing_rule_str = get_fuzzing_details(fuzzing_rule)
@@ -77,5 +77,5 @@ def fuzzy_risk(api, risks):
 
 
 def enrich_api(api, risks):
-    calculated_risks = fuzzy_risk(api, risks)
+    calculated_risks = boolean_risk(api, risks)
     return calculated_risks

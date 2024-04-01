@@ -1,5 +1,6 @@
 import json
 import os, requests
+import subprocess
 from random import randrange
 from celery import Celery
 
@@ -103,15 +104,20 @@ def run_command(api, vulnerability, scan_id):
     # save request to file
     with open("request.api", 'w') as req_file:
         req_file.write(api.__str__())
-    os.popen(f"{_CP}/asgard/request.api ragnarok:/ragnarok/request.api")
-    # TODO: create nuclei template
+    subprocess_output, subprocess_error = subprocess.Popen(f"{_CP}/asgard/request.api ragnarok:/ragnarok/request.api", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
     templates = get_template(vulnerability)
 
     for template in templates:
-        os.popen(f"{_EXEC}ragnarok python3 /yggdrasil/resources/utils/create_template.py --template {template['path']}")
+        subprocess_output, subprocess_error = subprocess.Popen(f"{_EXEC}ragnarok python3 /yggdrasil/resources/utils/create_template.py --template {template['path']}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+    
+    template_count, subprocess_error = subprocess.Popen(f"{_EXEC}ragnarok ls /ragnarok/input/ | wc -w", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+    print("####################################################")
+    print(f"TEMPLATES CREATED => {template_count.decode()}")
+    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
     # TODO: create payloads
     # run script on ragnarok
-    output_str = os.popen(f'{_EXEC}ragnarok {command}').read()
+    subprocess_output, subprocess_error = subprocess.Popen(f"{_EXEC}ragnarok {command}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+    output_str = subprocess_output.decode()
     # parse output
     if output_str!=None and output_str!='':
         # TODO: GET BETTER APPROACH
@@ -134,13 +140,13 @@ def run_command(api, vulnerability, scan_id):
         print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
     
     # clean up and copy request to ragnarok
-    template_count = os.popen(f"{_EXEC}ragnarok ls /ragnarok/input/ | wc -w").read()
-    os.popen(f"{_EXEC}ragnarok rm -rf /ragnarok/input/").read()
-    os.popen(f"{_EXEC}ragnarok rm -rf /ragnarok/export/").read()
-    os.popen(f"{_EXEC}ragnarok mkdir /ragnarok/input").read()
-    os.popen(f"{_EXEC}ragnarok mkdir /ragnarok/export").read()
+    template_count, subprocess_error = subprocess.Popen(f"{_EXEC}ragnarok ls /ragnarok/input/ | wc -w", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+    subprocess_output, subprocess_error = subprocess.Popen(f"{_EXEC}ragnarok rm -rf /ragnarok/input/", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+    subprocess_output, subprocess_error = subprocess.Popen(f"{_EXEC}ragnarok rm -rf /ragnarok/export/", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+    subprocess_output, subprocess_error = subprocess.Popen(f"{_EXEC}ragnarok mkdir /ragnarok/input", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+    subprocess_output, subprocess_error = subprocess.Popen(f"{_EXEC}ragnarok mkdir /ragnarok/export", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
     print("####################################################")
-    print(f"TEMPLATES CLEANED UP => {template_count}")
+    print(f"TEMPLATES CLEANED UP => {template_count.decode()}")
     print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
 
 

@@ -82,20 +82,6 @@ export default function Vulnerabilities() {
     getTags();
   }, []);
 
-  const handleFilter = (severity) => {
-    if (severity === "a") {
-      setData(results);
-    } else {
-      setData(
-        results.filter(function (res) {
-          return (
-            vulnerabilities[res.vulnerability_id - 1].severity === severity
-          );
-        })
-      );
-    }
-  };
-
   let navigate = useNavigate();
   const navigateToVulnerabilityDetails = (e) => {
     navigate(`/vulnerabilities/vulnerabilitydetails/${e.target.name}`);
