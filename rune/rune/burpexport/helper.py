@@ -108,7 +108,10 @@ def save_api(api, scope):
     # ADD API
     # FIXME: split is used to separate scope
     api_id = -1
-    for scope_item in scope.split(","):
+    for scope_item in scope.split("\r\n"):
+        # TODO: REMOVE COMMENTS
+        print("#########################################")
+        print(scope_item)
         if api["domain"] == scope_item or api["root_domain"] == scope_item:
             api_id = json.loads(requests.post("http://bifrost-api:8333/bifrost/v1/api/", json=api).text)['uuid']
 

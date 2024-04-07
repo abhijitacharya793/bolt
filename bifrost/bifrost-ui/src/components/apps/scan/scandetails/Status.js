@@ -124,7 +124,7 @@ export default function Status() {
                 {
                   results.filter(function (res) {
                     return (
-                      vulnerabilities[res.vulnerability_id - 1].severity === "c"
+                      vulnerabilities[res.vulnerability_id - 1] && vulnerabilities[res.vulnerability_id - 1].severity === "c"
                     );
                   }).length
                 }
@@ -136,7 +136,7 @@ export default function Status() {
                 {
                   results.filter(function (res) {
                     return (
-                      vulnerabilities[res.vulnerability_id - 1].severity === "h"
+                      vulnerabilities[res.vulnerability_id - 1] && vulnerabilities[res.vulnerability_id - 1].severity === "h"
                     );
                   }).length
                 }
@@ -150,7 +150,7 @@ export default function Status() {
                 {
                   results.filter(function (res) {
                     return (
-                      vulnerabilities[res.vulnerability_id - 1].severity === "m"
+                      vulnerabilities[res.vulnerability_id - 1] && vulnerabilities[res.vulnerability_id - 1].severity === "m"
                     );
                   }).length
                 }
@@ -162,7 +162,7 @@ export default function Status() {
                 {
                   results.filter(function (res) {
                     return (
-                      vulnerabilities[res.vulnerability_id - 1].severity === "l"
+                      vulnerabilities[res.vulnerability_id - 1] && vulnerabilities[res.vulnerability_id - 1].severity === "l"
                     );
                   }).length
                 }
