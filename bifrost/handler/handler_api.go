@@ -8,27 +8,16 @@ import (
 	"time"
 
 	"github.com/abhijitacharya793/bifrost/internal/database"
+	"github.com/abhijitacharya793/common"
 	"github.com/google/uuid"
 )
 
 func (apiCfg *apiConfig) handlerCreateAPI(w http.ResponseWriter, r *http.Request) {
 	log.Println("Endpoint Hit: CreateAPI")
 
-	type parameters struct {
-		Target          string `json:"target"`
-		RootDomain      string `json:"rootDomain"`
-		Domain          string `json:"domain"`
-		Protocol        string `json:"protocol"`
-		ProtocolVersion string `json:"protocolVersion"`
-		Port            string `json:"port"`
-		Method          string `json:"method"`
-		Path            string `json:"path"`
-		Body            string `json:"body"`
-	}
-
 	decoder := json.NewDecoder(r.Body)
 
-	params := parameters{}
+	params := common.Parameters{}
 	err := decoder.Decode(&params)
 	if err != nil {
 		respondWithError(w, 400, fmt.Sprintf("Error passing JSON: %v", err))
