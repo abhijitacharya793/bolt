@@ -4,6 +4,7 @@ go 1.21.6
 
 require (
 	dario.cat/mergo v1.0.0 // indirect
+	github.com/abhijitacharya793/bolt/common v0.0.0-20240908163736-dbc31fef3186 // indirect
 	github.com/fatih/color v1.14.1 // indirect
 	github.com/go-chi/chi v1.5.5 // indirect
 	github.com/go-chi/cors v1.2.1 // indirect

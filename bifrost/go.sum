@@ -1,5 +1,7 @@
 dario.cat/mergo v1.0.0 h1:AGCNq9Evsj31mOgNPcLyXc+4PNABt905YmuqPYYpBWk=
 dario.cat/mergo v1.0.0/go.mod h1:uNxQE+84aUszobStD9th8a29P2fMDhsBdgRYvZOxGmk=
+github.com/abhijitacharya793/bolt/common v0.0.0-20240908163736-dbc31fef3186 h1:qVe7EnlbY2Jpim774N4po4SbjxtBw1DCKsBmmybWpbY=
+github.com/abhijitacharya793/bolt/common v0.0.0-20240908163736-dbc31fef3186/go.mod h1:gJEsEkBVLYdzw88AZn+M4ZYR/V6QyxgomZK+TF+/EuQ=
 github.com/fatih/color v1.14.1 h1:qfhVLaG5s+nCROl1zJsZRxFeYrHLqWroPOQ8BWiNb4w=
 github.com/fatih/color v1.14.1/go.mod h1:2oHN61fhTpgcxD3TSWCgKDiH1+x4OiDVVGH8WlgGZGg=
 github.com/go-chi/chi v1.5.5 h1:vOB/HbEMt9QqBqErz07QehcOKHaWFtuj87tTDVz2qXE=

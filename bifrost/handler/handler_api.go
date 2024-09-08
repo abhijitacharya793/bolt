@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/abhijitacharya793/bifrost/internal/database"
-	"github.com/abhijitacharya793/common"
+	"github.com/abhijitacharya793/bolt/common"
 	"github.com/google/uuid"
 )
 
@@ -17,7 +17,7 @@ func (apiCfg *apiConfig) handlerCreateAPI(w http.ResponseWriter, r *http.Request
 
 	decoder := json.NewDecoder(r.Body)
 
-	params := common.Parameters{}
+	params := common.APIParameters{}
 	err := decoder.Decode(&params)
 	if err != nil {
 		respondWithError(w, 400, fmt.Sprintf("Error passing JSON: %v", err))
