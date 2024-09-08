@@ -5,7 +5,7 @@ type Healthz struct {
 	Database string `json:"database"`
 }
 
-type Parameters struct {
+type APIParameters struct {
 	Target          string `json:"target"`
 	RootDomain      string `json:"rootDomain"`
 	Domain          string `json:"domain"`
