@@ -1,0 +1,2 @@
+port: 8334
+db_url: postgres://postgres:postgres@db:5432/bolt?sslmode=disable

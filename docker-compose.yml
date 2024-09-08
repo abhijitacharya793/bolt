@@ -1,0 +1,79 @@
+version: "3.8"
+services:
+  # POSTGRES
+  db:
+    container_name: "db"
+    image: postgres:15
+    ports:
+      - "5433:5432"
+    volumes:
+      - bolt_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=bolt
+  alpine-bash:
+    build:
+      context: .
+      dockerfile: postgresql/Dockerfile
+    depends_on:
+      - db
+  # BIFROST API
+  bifrost-api:
+    container_name: "bifrost_api"
+    build:
+      context: ./bifrost
+    ports:
+      - "8333:8333"
+    environment:
+      - DEBUG=1
+    depends_on:
+      - db
+  # RUNE API
+  rune-api:
+    container_name: "rune_api"
+    build:
+      context: ./rune
+    ports:
+      - "8334:8334"
+    environment:
+      - DEBUG=1
+    depends_on:
+      - db
+      - bifrost-api
+  # VALHALLA API
+  valhalla-api:
+    container_name: "valhalla_api"
+    build:
+      context: ./valhalla
+    ports:
+      - "8335:8335"
+    environment:
+      - DEBUG=1
+    depends_on:
+      - db
+      - bifrost-api
+      - rune-api
+  # YGGDRASIL API
+  yggdrasil-api:
+    container_name: "yggdrasil_api"
+    build:
+      context: ./yggdrasil
+    ports:
+      - "8337:8337"
+    environment:
+      - DEBUG=1
+    depends_on:
+      - db
+  # HIEMDALL API
+  # ASGARD SCHEDULER
+  # asgard-scheduler:
+  #   container_name: "asgard_scheduler"
+  #   build:
+  #     context: ./asgard
+  #   environment:
+  #     - DEBUG=1
+  #   depends_on:
+  #     - db
+volumes:
+  bolt_data:

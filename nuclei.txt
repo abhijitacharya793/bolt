@@ -1,0 +1,479 @@
+Using Nuclei as Library
+Nuclei was primarily built as a CLI tool, but with increasing choice of users wanting to use nuclei as library in their own automation, we have added a simplified Library/SDK of nuclei in v3
+
+Installation
+To add nuclei as a library to your go project, you can use the following command:
+
+go get -u github.com/projectdiscovery/nuclei/v3/lib
+Or add below import to your go file and let IDE handle the rest:
+
+import nuclei "github.com/projectdiscovery/nuclei/v3/lib"
+Basic Example of using Nuclei Library/SDK
+// create nuclei engine with options
+	ne, err := nuclei.NewNucleiEngine(
+		nuclei.WithTemplateFilters(nuclei.TemplateFilters{Severity: "critical"}), // run critical severity templates only
+	)
+	if err != nil {
+		panic(err)
+	}
+	// load targets and optionally probe non http/https targets
+	ne.LoadTargets([]string{"scanme.sh"}, false)
+	err = ne.ExecuteWithCallback(nil)
+	if err != nil {
+		panic(err)
+	}
+	defer ne.Close()
+Advanced Example of using Nuclei Library/SDK
+For Various use cases like batching etc you might want to run nuclei in goroutines this can be done by using nuclei.NewThreadSafeNucleiEngine
+
+// create nuclei engine with options
+	ne, err := nuclei.NewThreadSafeNucleiEngine()
+	if err != nil{
+        panic(err)
+    }
+	// setup waitgroup to handle concurrency
+	wg := &sync.WaitGroup{}
+
+	// scan 1 = run dns templates on scanme.sh
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		err = ne.ExecuteNucleiWithOpts([]string{"scanme.sh"}, nuclei.WithTemplateFilters(nuclei.TemplateFilters{ProtocolTypes: "http"}))
+		if err != nil {
+            panic(err)
+        }
+	}()
+
+	// scan 2 = run http templates on honey.scanme.sh
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		err = ne.ExecuteNucleiWithOpts([]string{"honey.scanme.sh"}, nuclei.WithTemplateFilters(nuclei.TemplateFilters{ProtocolTypes: "dns"}))
+		if err != nil {
+            panic(err)
+        }
+	}()
+
+	// wait for all scans to finish
+	wg.Wait()
+	defer ne.Close()
+More Documentation
+For complete documentation of nuclei library, please refer to godoc which contains all available options and methods.
+
+Note
+❗ Disclaimer
+This project is in active development. Expect breaking changes with releases. Review the release changelog before updating.
+This project was primarily built to be used as a standalone CLI tool. Running nuclei as a service may pose security risks. It's recommended to use with caution and additional security measures.Collapse ▴
+ Documentation ¶
+Index ¶
+Variables
+func GetTargetsFromTemplateMetadata(ctx context.Context, templates []*templates.Template, outputFormat string, ...) chan string
+func GetTargetsFromUncover(ctx context.Context, outputFormat string, opts *uncover.Options) (chan string, error)
+type Concurrency
+type HeadlessOpts
+type InteractshOpts
+type NetworkConfig
+type NucleiEngine
+func NewNucleiEngine(options ...NucleiSDKOptions) (*NucleiEngine, error)deprecated
+func NewNucleiEngineCtx(ctx context.Context, options ...NucleiSDKOptions) (*NucleiEngine, error)
+func (e *NucleiEngine) Close()
+func (e *NucleiEngine) Engine() *core.Engine
+func (e *NucleiEngine) ExecuteCallbackWithCtx(ctx context.Context, callback ...func(event *output.ResultEvent)) error
+func (e *NucleiEngine) ExecuteWithCallback(callback ...func(event *output.ResultEvent)) error
+func (e *NucleiEngine) GetExecuterOptions() *protocols.ExecutorOptions
+func (e *NucleiEngine) GetTemplates() []*templates.Template
+func (e *NucleiEngine) LoadAllTemplates() error
+func (e *NucleiEngine) LoadTargets(targets []string, probeNonHttp bool)
+func (e *NucleiEngine) LoadTargetsFromReader(reader io.Reader, probeNonHttp bool)
+func (e *NucleiEngine) LoadTargetsWithHttpData(filePath string, filemode string) error
+func (e *NucleiEngine) Options() *types.Options
+func (e *NucleiEngine) ParseTemplate(data []byte) (*templates.Template, error)
+func (e *NucleiEngine) SignTemplate(tmplSigner *signer.TemplateSigner, data []byte) ([]byte, error)
+type NucleiSDKOptions
+func DASTMode() NucleiSDKOptions
+func DisableUpdateCheck() NucleiSDKOptions
+func EnableCodeTemplates() NucleiSDKOptions
+func EnableHeadlessWithOpts(hopts *HeadlessOpts) NucleiSDKOptions
+func EnablePassiveMode() NucleiSDKOptions
+func EnableStatsWithOpts(opts StatsOptions) NucleiSDKOptions
+func LoadSecretsFromFile(files []string, prefetch bool) NucleiSDKOptions
+func SignedTemplatesOnly() NucleiSDKOptions
+func UseOutputWriter(writer OutputWriter) NucleiSDKOptions
+func UseStatsWriter(writer StatsWriter) NucleiSDKOptions
+func WithAuthProvider(provider authprovider.AuthProvider) NucleiSDKOptions
+func WithCatalog(cat catalog.Catalog) NucleiSDKOptions
+func WithConcurrency(opts Concurrency) NucleiSDKOptions
+func WithGlobalRateLimit(maxTokens int, duration time.Duration) NucleiSDKOptions
+func WithGlobalRateLimitCtx(ctx context.Context, maxTokens int, duration time.Duration) NucleiSDKOptions
+func WithHeaders(headers []string) NucleiSDKOptions
+func WithInteractshOptions(opts InteractshOpts) NucleiSDKOptions
+func WithNetworkConfig(opts NetworkConfig) NucleiSDKOptions
+func WithProxy(proxy []string, proxyInternalRequests bool) NucleiSDKOptions
+func WithSandboxOptions(allowLocalFileAccess bool, restrictLocalNetworkAccess bool) NucleiSDKOptions
+func WithScanStrategy(strategy string) NucleiSDKOptions
+func WithTemplateFilters(filters TemplateFilters) NucleiSDKOptions
+func WithTemplateUpdateCallback(disableTemplatesAutoUpgrade bool, callback func(newVersion string)) NucleiSDKOptions
+func WithTemplatesOrWorkflows(sources TemplateSources) NucleiSDKOptions
+func WithVerbosity(opts VerbosityOptions) NucleiSDKOptions
+type OutputWriter
+type StatsOptions
+type StatsWriter
+type TemplateFilters
+type TemplateSources
+type ThreadSafeNucleiEngine
+func NewThreadSafeNucleiEngine(opts ...NucleiSDKOptions) (*ThreadSafeNucleiEngine, error)deprecated
+func NewThreadSafeNucleiEngineCtx(ctx context.Context, opts ...NucleiSDKOptions) (*ThreadSafeNucleiEngine, error)
+func (e *ThreadSafeNucleiEngine) Close()
+func (e *ThreadSafeNucleiEngine) ExecuteNucleiWithOpts(targets []string, opts ...NucleiSDKOptions) error
+func (e *ThreadSafeNucleiEngine) ExecuteNucleiWithOptsCtx(ctx context.Context, targets []string, opts ...NucleiSDKOptions) error
+func (e *ThreadSafeNucleiEngine) GlobalLoadAllTemplates() error
+func (e *ThreadSafeNucleiEngine) GlobalResultCallback(callback func(event *output.ResultEvent))
+type VerbosityOptions
+Examples ¶
+NucleiEngine
+ThreadSafeNucleiEngine
+Constants ¶
+This section is empty.
+
+Variables ¶
+View Source
+var (
+	// ErrNotImplemented is returned when a feature is not implemented
+	ErrNotImplemented = errorutil.New("Not implemented")
+	// ErrNoTemplatesAvailable is returned when no templates are available to execute
+	ErrNoTemplatesAvailable = errorutil.New("No templates available")
+	// ErrNoTargetsAvailable is returned when no targets are available to scan
+	ErrNoTargetsAvailable = errorutil.New("No targets available")
+	// ErrOptionsNotSupported is returned when an option is not supported in thread safe mode
+	ErrOptionsNotSupported = errorutil.NewWithFmt("Option %v not supported in thread safe mode")
+)
+View Source
+var DefaultConfig *config.Config
+DefaultConfig is instance of default nuclei configs any mutations to this config will be reflected in all nuclei instances (saves some config to disk)
+
+Functions ¶
+func GetTargetsFromTemplateMetadata ¶
+func GetTargetsFromTemplateMetadata(ctx context.Context, templates []*templates.Template, outputFormat string, opts *uncover.Options) chan string
+GetTargetsFromTemplateMetadata returns all targets by querying engine metadata (ex: fofo-query,shodan-query) etc from given templates . supported formats are any string with [ip,host,port,url] placeholders
+
+func GetTargetsFromUncover ¶
+func GetTargetsFromUncover(ctx context.Context, outputFormat string, opts *uncover.Options) (chan string, error)
+GetTargetsFromUncover returns targets from uncover in given format . supported formats are any string with [ip,host,port,url] placeholders
+
+Types ¶
+type Concurrency ¶
+type Concurrency struct {
+	TemplateConcurrency           int // number of templates to run concurrently (per host in host-spray mode)
+	HostConcurrency               int // number of hosts to scan concurrently  (per template in template-spray mode)
+	HeadlessHostConcurrency       int // number of hosts to scan concurrently for headless templates  (per template in template-spray mode)
+	HeadlessTemplateConcurrency   int // number of templates to run concurrently for headless templates (per host in host-spray mode)
+	JavascriptTemplateConcurrency int // number of templates to run concurrently for javascript templates (per host in host-spray mode)
+	TemplatePayloadConcurrency    int // max concurrent payloads to run for a template (a good default is 25)
+	ProbeConcurrency              int // max concurrent http probes to run (a good default is 50)
+}
+Concurrency options
+
+type HeadlessOpts ¶
+type HeadlessOpts struct {
+	PageTimeout     int // timeout for page load
+	ShowBrowser     bool
+	HeadlessOptions []string
+	UseChrome       bool
+}
+HeadlessOpts contains options for headless templates
+
+type InteractshOpts ¶
+type InteractshOpts interactsh.Options
+InteractshOpts contains options for interactsh
+
+type NetworkConfig ¶
+type NetworkConfig struct {
+	DisableMaxHostErr     bool     // Disable max host error optimization (Hosts are not skipped even if they are not responding)
+	Interface             string   // Interface to use for network scan
+	InternalResolversList []string // Use a list of resolver
+	LeaveDefaultPorts     bool     // Leave default ports for http/https
+	MaxHostError          int      // Maximum number of host errors to allow before skipping that host
+	Retries               int      // Number of retries
+	SourceIP              string   // SourceIP sets custom source IP address for network requests
+	SystemResolvers       bool     // Use system resolvers
+	Timeout               int      // Timeout in seconds
+	TrackError            []string // Adds given errors to max host error watchlist
+}
+NetworkConfig contains network config options ex: retries , httpx probe , timeout etc
+
+type NucleiEngine ¶
+type NucleiEngine struct {
+	// contains filtered or unexported fields
+}
+NucleiEngine is the Engine/Client for nuclei which runs scans using templates and returns results
+
+Example ¶
+func
+NewNucleiEngine
+deprecated
+func NewNucleiEngineCtx ¶
+added in v3.2.9
+func NewNucleiEngineCtx(ctx context.Context, options ...NucleiSDKOptions) (*NucleiEngine, error)
+NewNucleiEngineCtx creates a new nuclei engine instance with given context
+
+func (*NucleiEngine) Close ¶
+func (e *NucleiEngine) Close()
+Close all resources used by nuclei engine
+
+func (*NucleiEngine) Engine ¶
+added in v3.2.5
+func (e *NucleiEngine) Engine() *core.Engine
+Engine returns core Executer of nuclei
+
+func (*NucleiEngine) ExecuteCallbackWithCtx ¶
+added in v3.2.7
+func (e *NucleiEngine) ExecuteCallbackWithCtx(ctx context.Context, callback ...func(event *output.ResultEvent)) error
+ExecuteCallbackWithCtx executes templates on targets and calls callback on each result(only if results are found) enable matcher-status option if you expect this callback to be called for all results regardless if it matched or not
+
+func (*NucleiEngine) ExecuteWithCallback ¶
+func (e *NucleiEngine) ExecuteWithCallback(callback ...func(event *output.ResultEvent)) error
+ExecuteWithCallback is same as ExecuteCallbackWithCtx but with default context Note this is deprecated and will be removed in future major release
+
+func (*NucleiEngine) GetExecuterOptions ¶
+added in v3.0.3
+func (e *NucleiEngine) GetExecuterOptions() *protocols.ExecutorOptions
+GetExecuterOptions returns the nuclei executor options
+
+func (*NucleiEngine) GetTemplates ¶
+func (e *NucleiEngine) GetTemplates() []*templates.Template
+GetTemplates returns all nuclei templates that are loaded
+
+func (*NucleiEngine) LoadAllTemplates ¶
+func (e *NucleiEngine) LoadAllTemplates() error
+LoadAllTemplates loads all nuclei template based on given options
+
+func (*NucleiEngine) LoadTargets ¶
+func (e *NucleiEngine) LoadTargets(targets []string, probeNonHttp bool)
+LoadTargets(urls/domains/ips only) adds targets to the nuclei engine
+
+func (*NucleiEngine) LoadTargetsFromReader ¶
+func (e *NucleiEngine) LoadTargetsFromReader(reader io.Reader, probeNonHttp bool)
+LoadTargetsFromReader adds targets(urls/domains/ips only) from reader to the nuclei engine
+
+func (*NucleiEngine) LoadTargetsWithHttpData ¶
+added in v3.2.0
+func (e *NucleiEngine) LoadTargetsWithHttpData(filePath string, filemode string) error
+LoadTargetsWithHttpData loads targets that contain http data from file it currently supports multiple formats like burp xml,openapi,swagger,proxify json Note: this is mutually exclusive with LoadTargets and LoadTargetsFromReader
+
+func (*NucleiEngine) Options ¶
+added in v3.2.5
+func (e *NucleiEngine) Options() *types.Options
+Options return nuclei Type Options
+
+func (*NucleiEngine) ParseTemplate ¶
+added in v3.0.3
+func (e *NucleiEngine) ParseTemplate(data []byte) (*templates.Template, error)
+ParseTemplate parses a template from given data template verification status can be accessed from template.Verified
+
+func (*NucleiEngine) SignTemplate ¶
+added in v3.0.3
+func (e *NucleiEngine) SignTemplate(tmplSigner *signer.TemplateSigner, data []byte) ([]byte, error)
+SignTemplate signs the tempalate using given signer
+
+type NucleiSDKOptions ¶
+type NucleiSDKOptions func(e *NucleiEngine) error
+NucleiSDKOptions contains options for nuclei SDK
+
+func DASTMode ¶
+added in v3.2.3
+func DASTMode() NucleiSDKOptions
+DASTMode only run DAST templates
+
+func DisableUpdateCheck ¶
+added in v3.3.0
+func DisableUpdateCheck() NucleiSDKOptions
+DisableUpdateCheck disables nuclei update check
+
+func EnableCodeTemplates ¶
+added in v3.0.4
+func EnableCodeTemplates() NucleiSDKOptions
+EnableCodeTemplates allows loading/executing code protocol templates
+
+func EnableHeadlessWithOpts ¶
+func EnableHeadlessWithOpts(hopts *HeadlessOpts) NucleiSDKOptions
+EnableHeadless allows execution of headless templates *Use With Caution*: Enabling headless mode may open up attack surface due to browser usage and can be prone to exploitation by custom unverified templates if not properly configured
+
+func EnablePassiveMode ¶
+added in v3.1.9
+func EnablePassiveMode() NucleiSDKOptions
+EnablePassiveMode allows enabling passive HTTP response processing mode
+
+func EnableStatsWithOpts ¶
+func EnableStatsWithOpts(opts StatsOptions) NucleiSDKOptions
+EnableStats enables Stats collection with defined interval(in sec) and callback Note: callback is executed in a separate goroutine
+
+func LoadSecretsFromFile ¶
+added in v3.2.0
+func LoadSecretsFromFile(files []string, prefetch bool) NucleiSDKOptions
+LoadSecretsFromFile allows loading secrets from file
+
+func SignedTemplatesOnly ¶
+added in v3.2.3
+func SignedTemplatesOnly() NucleiSDKOptions
+SignedTemplatesOnly only run signed templates and disabled loading all unsigned templates
+
+func UseOutputWriter ¶
+func UseOutputWriter(writer OutputWriter) NucleiSDKOptions
+UseOutputWriter allows setting custom output writer by default a mock writer is used with user defined callback if outputWriter is used callback will be ignored
+
+func UseStatsWriter ¶
+func UseStatsWriter(writer StatsWriter) NucleiSDKOptions
+UseStatsWriter allows setting a custom stats writer which can be used to write stats somewhere (ex: send to webserver etc)
+
+func WithAuthProvider ¶
+added in v3.2.0
+func WithAuthProvider(provider authprovider.AuthProvider) NucleiSDKOptions
+WithAuthProvider allows setting a custom authprovider implementation
+
+func WithCatalog ¶
+added in v3.2.5
+func WithCatalog(cat catalog.Catalog) NucleiSDKOptions
+WithCatalog uses a supplied catalog
+
+func WithConcurrency ¶
+func WithConcurrency(opts Concurrency) NucleiSDKOptions
+WithConcurrency sets concurrency options
+
+func WithGlobalRateLimit ¶
+func WithGlobalRateLimit(maxTokens int, duration time.Duration) NucleiSDKOptions
+WithGlobalRateLimit sets global rate (i.e all hosts combined) limit options Deprecated: will be removed in favour of WithGlobalRateLimitCtx in next release
+
+func WithGlobalRateLimitCtx ¶
+added in v3.2.9
+func WithGlobalRateLimitCtx(ctx context.Context, maxTokens int, duration time.Duration) NucleiSDKOptions
+WithGlobalRateLimitCtx allows setting a global rate limit for the entire engine
+
+func WithHeaders ¶
+added in v3.1.6
+func WithHeaders(headers []string) NucleiSDKOptions
+WithHeaders allows setting custom header/cookie to include in all http request in header:value format
+
+func WithInteractshOptions ¶
+func WithInteractshOptions(opts InteractshOpts) NucleiSDKOptions
+WithInteractshOptions sets interactsh options
+
+func WithNetworkConfig ¶
+func WithNetworkConfig(opts NetworkConfig) NucleiSDKOptions
+WithNetworkConfig allows setting network config options
+
+func WithProxy ¶
+func WithProxy(proxy []string, proxyInternalRequests bool) NucleiSDKOptions
+WithProxy allows setting proxy options
+
+func WithSandboxOptions ¶
+func WithSandboxOptions(allowLocalFileAccess bool, restrictLocalNetworkAccess bool) NucleiSDKOptions
+WithSandboxOptions allows setting supported sandbox options
+
+func WithScanStrategy ¶
+func WithScanStrategy(strategy string) NucleiSDKOptions
+WithScanStrategy allows setting scan strategy options
+
+func WithTemplateFilters ¶
+func WithTemplateFilters(filters TemplateFilters) NucleiSDKOptions
+WithTemplateFilters sets template filters and only templates matching the filters will be loaded and executed
+
+func WithTemplateUpdateCallback ¶
+func WithTemplateUpdateCallback(disableTemplatesAutoUpgrade bool, callback func(newVersion string)) NucleiSDKOptions
+WithTemplateUpdateCallback allows setting a callback which will be called when nuclei templates are outdated Note: Nuclei-templates are crucial part of nuclei and using outdated templates or nuclei sdk is not recommended as it may cause unexpected results due to compatibility issues
+
+func WithTemplatesOrWorkflows ¶
+func WithTemplatesOrWorkflows(sources TemplateSources) NucleiSDKOptions
+WithTemplatesOrWorkflows sets templates / workflows to use /load
+
+func WithVerbosity ¶
+func WithVerbosity(opts VerbosityOptions) NucleiSDKOptions
+WithVerbosity allows setting verbosity options of (internal) nuclei engine and does not affect SDK output
+
+type OutputWriter ¶
+type OutputWriter output.Writer
+OutputWriter
+
+type StatsOptions ¶
+type StatsOptions struct {
+	Interval         int
+	JSON             bool
+	MetricServerPort int
+}
+StatsOptions
+
+type StatsWriter ¶
+type StatsWriter progress.Progress
+StatsWriter
+
+type TemplateFilters ¶
+type TemplateFilters struct {
+	Severity             string   // filter by severities (accepts CSV values of info, low, medium, high, critical)
+	ExcludeSeverities    string   // filter by excluding severities (accepts CSV values of info, low, medium, high, critical)
+	ProtocolTypes        string   // filter by protocol types
+	ExcludeProtocolTypes string   // filter by excluding protocol types
+	Authors              []string // fiter by author
+	Tags                 []string // filter by tags present in template
+	ExcludeTags          []string // filter by excluding tags present in template
+	IncludeTags          []string // filter by including tags present in template
+	IDs                  []string // filter by template IDs
+	ExcludeIDs           []string // filter by excluding template IDs
+	TemplateCondition    []string // DSL condition/ expression
+}
+config contains all SDK configuration options
+
+type TemplateSources ¶
+type TemplateSources struct {
+	Templates       []string // template file/directory paths
+	Workflows       []string // workflow file/directory paths
+	RemoteTemplates []string // remote template urls
+	RemoteWorkflows []string // remote workflow urls
+	TrustedDomains  []string // trusted domains for remote templates/workflows
+}
+TemplateSources contains template sources which define where to load templates from
+
+type ThreadSafeNucleiEngine ¶
+type ThreadSafeNucleiEngine struct {
+	// contains filtered or unexported fields
+}
+ThreadSafeNucleiEngine is a tweaked version of nuclei.Engine whose methods are thread-safe and can be used concurrently. Non-thread-safe methods start with Global prefix
+
+Example ¶
+func
+NewThreadSafeNucleiEngine
+deprecated
+func NewThreadSafeNucleiEngineCtx ¶
+added in v3.2.9
+func NewThreadSafeNucleiEngineCtx(ctx context.Context, opts ...NucleiSDKOptions) (*ThreadSafeNucleiEngine, error)
+NewThreadSafeNucleiEngine creates a new nuclei engine with given options whose methods are thread-safe and can be used concurrently Note: Non-thread-safe methods start with Global prefix
+
+func (*ThreadSafeNucleiEngine) Close ¶
+func (e *ThreadSafeNucleiEngine) Close()
+Close all resources used by nuclei engine
+
+func (*ThreadSafeNucleiEngine) ExecuteNucleiWithOpts ¶
+func (e *ThreadSafeNucleiEngine) ExecuteNucleiWithOpts(targets []string, opts ...NucleiSDKOptions) error
+ExecuteNucleiWithOpts is same as ExecuteNucleiWithOptsCtx but with default context This is a placeholder and will be deprecated in future major release
+
+func (*ThreadSafeNucleiEngine) ExecuteNucleiWithOptsCtx ¶
+added in v3.2.7
+func (e *ThreadSafeNucleiEngine) ExecuteNucleiWithOptsCtx(ctx context.Context, targets []string, opts ...NucleiSDKOptions) error
+ExecuteNucleiWithOptsCtx executes templates on targets and calls callback on each result(only if results are found) This method can be called concurrently and it will use some global resources but can be runned parallelly by invoking this method with different options and targets Note: Not all options are thread-safe. this method will throw error if you try to use non-thread-safe options
+
+func (*ThreadSafeNucleiEngine) GlobalLoadAllTemplates ¶
+func (e *ThreadSafeNucleiEngine) GlobalLoadAllTemplates() error
+GlobalLoadAllTemplates loads all templates from nuclei-templates repo This method will load all templates based on filters given at the time of nuclei engine creation in opts
+
+func (*ThreadSafeNucleiEngine) GlobalResultCallback ¶
+func (e *ThreadSafeNucleiEngine) GlobalResultCallback(callback func(event *output.ResultEvent))
+GlobalResultCallback sets a callback function which will be called for each result
+
+type VerbosityOptions ¶
+type VerbosityOptions struct {
+	Verbose       bool // show verbose output
+	Silent        bool // show only results
+	Debug         bool // show debug output
+	DebugRequest  bool // show request in debug output
+	DebugResponse bool // show response in debug output
+	ShowVarDump   bool // show variable dumps in output
+}
+VerbosityOptions
